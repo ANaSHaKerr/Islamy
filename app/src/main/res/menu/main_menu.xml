@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<group android:checkableBehavior="single">
+    <item android:id="@+id/nav_home"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="تسابيح"
+        />
+    <item android:id="@+id/nav_home2"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="ادعية"/>
+    <item android:id="@+id/nav_home3"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="اذكار الصباح"/>
+    <item android:id="@+id/nav_home4"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="اذكار المساء"/>
+</group>
+
+    <group android:checkableBehavior="single" >
+
+        <item android:title="الاعدادات">
+            <menu>
+                <item android:id="@+id/darkMode"
+                    android:title="الوضع الليلي"
+                    android:icon="@drawable/ic_baseline_wb_sunny_24"
+                    />
+                <item android:id="@+id/translate"
+                    android:title="@string/changeLanguage"
+                    android:icon="@drawable/ic_baseline_g_translate_24"
+                    />
+                <item android:id="@+id/aboutApp"
+                    android:title="عن التطبيق"
+                    android:icon="@drawable/ic_baseline_info_24"
+                    />
+
+            </menu>
+        </item>
+    </group>
+
+    <item android:title="شارك">
+
+        <menu>
+
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_baseline_share_24"
+                android:title="مشاركة" />
+
+            <item
+                android:id="@+id/nav_rate"
+                android:icon="@drawable/ic_baseline_rate_review_24"
+                android:title="تقييم التطبيق" />
+        </menu>
+    </item>
+
+</menu>
