@@ -44,6 +44,16 @@ public class OnboardingActivity extends AppCompatActivity {
 
         addDots(0);
         viewPager.addOnPageChangeListener(pageChangeListener);
+
+        start.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Onboarding.this,MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
     }
     public void skip(View view){
         startActivity(new Intent( this, MainActivity.class));
