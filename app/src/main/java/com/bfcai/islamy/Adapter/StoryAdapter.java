@@ -2,6 +2,7 @@ package com.bfcai.islamy.Adapter;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,22 +11,35 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bfcai.islamy.Model.Story;
 import com.bfcai.islamy.R;
 import com.bfcai.islamy.Screens.Stories.Components.storyDetailsActivity;
 import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.storyViewHolder> {
 
     List<Story> storyList;
     Activity context;
     FirebaseFirestore firestore;
+    FirebaseAuth auth;
 
     public StoryAdapter(List<Story> storyList, Activity context) {
         this.storyList = storyList;
@@ -37,6 +51,7 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.storyViewHol
     public StoryAdapter.storyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
        View v = LayoutInflater.from(context).inflate(R.layout.story_layout,parent,false);
        firestore = FirebaseFirestore.getInstance();
+       auth = FirebaseAuth.getInstance();
        return new storyViewHolder(v);
 
     }
@@ -60,6 +75,53 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.storyViewHol
 
 
         });
+        String storyId = story.storyId;
+        String currentUserId = auth.getCurrentUser().getUid();
+        holder.likePic.setOnClickListener(v ->{
+            firestore.collection("Stories/"+storyId+"/Likes").document(currentUserId).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if(!task.getResult().exists()){
+                        Map<String , Object> likes = new HashMap<>();
+                        likes.put("timestamp", FieldValue.serverTimestamp());
+                        firestore.collection("Stories/"+storyId+"/Likes").document(currentUserId).set(likes);
+                    }
+                    else {
+                        firestore.collection("Stories/"+storyId+"/Likes").document(currentUserId).delete();
+                    }
+                }
+            });
+
+            firestore.collection("Stories/"+storyId+"/Likes").document(currentUserId).addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+                @Override
+                public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                    if(error == null){
+                        if(value.exists()){
+                            holder.likePic.setImageDrawable(context.getDrawable(R.drawable.fullfavorite));
+                        }
+                        else {
+                            holder.likePic.setImageDrawable(context.getDrawable(R.drawable.ic_baseline_favorite_border_24));
+                        }
+                    }
+                }
+            });
+
+            firestore.collection("Stories/"+storyId+"/Likes").addSnapshotListener(new EventListener<QuerySnapshot>() {
+                @Override
+                public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                    if(error == null){
+                        if (!value.isEmpty()){
+                            int count = value.size();
+                            holder.setLikeCount(count);
+                        } else {
+                            holder.setLikeCount(0);
+                        }
+                    }
+                }
+            });
+        });
+
 
     }
 
@@ -75,7 +137,14 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.storyViewHol
         public storyViewHolder(@NonNull View itemView) {
             super(itemView);
             view = itemView;
+            likePic = view.findViewById(R.id.like_btn);
         }
+
+        public void setLikeCount(int count) {
+           likeCount = view.findViewById(R.id.like_count_tv);
+           likeCount.setText(count + " Likes");
+        }
+
         public void setPostImage(String imageurl){
             imageView = view.findViewById(R.id.user_post);
             Glide.with(context).load(imageurl).into(imageView);

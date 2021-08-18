@@ -77,7 +77,9 @@ public class StoriesActivity extends AppCompatActivity {
             public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
                 for (DocumentChange doc : value.getDocumentChanges()) {
                     if (doc.getType() == DocumentChange.Type.ADDED) {
-                        Story story = doc.getDocument().toObject(Story.class);
+                        String storyId = doc.getDocument().getId();
+
+                        Story story = doc.getDocument().toObject(Story.class).withId(storyId);
                         storyList.add(story);
                         adapter.notifyDataSetChanged();
                     } else {

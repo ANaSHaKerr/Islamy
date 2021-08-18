@@ -2,7 +2,7 @@ package com.bfcai.islamy.Model;
 
 import java.util.Date;
 
-public class Story {
+public class Story extends  StoryId{
     String title;
     String des;
     String image;

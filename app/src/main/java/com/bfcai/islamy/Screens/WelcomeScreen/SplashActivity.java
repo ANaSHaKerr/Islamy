@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
@@ -15,6 +16,8 @@ import android.widget.TextView;
 
 import com.bfcai.islamy.MainActivity;
 import com.bfcai.islamy.R;
+
+import java.util.Locale;
 
 public class SplashActivity extends AppCompatActivity {
     private static int SPLASH_TIMER = 5000;
@@ -51,6 +54,7 @@ public class SplashActivity extends AppCompatActivity {
                 boolean isFirstTime = sharedPreferences.getBoolean("firstTime",true);
 
                 if(isFirstTime){
+                    setLocale("ar");
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putBoolean("firstTime",false);
                     editor.commit();
@@ -68,5 +72,15 @@ public class SplashActivity extends AppCompatActivity {
             }
         },SPLASH_TIMER);
 
+    }
+    private void setLocale(String lang) {
+        Locale locale=new Locale(lang);
+        Locale.setDefault(locale);
+        Configuration config=new Configuration();
+        config.locale=locale;
+        getBaseContext().getResources().updateConfiguration(config,getBaseContext().getResources().getDisplayMetrics());
+        SharedPreferences.Editor editor=getSharedPreferences("Setting",MODE_PRIVATE).edit();
+        editor.putString("My_Lang",lang);
+        editor.apply();
     }
 }

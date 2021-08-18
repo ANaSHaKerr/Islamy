@@ -183,6 +183,7 @@ public class NoteHomeActivity extends AppCompatActivity {
                     .addSwipeRightActionIcon(R.drawable.ic_baseline_delete_24)
                     .setActionIconTint(ContextCompat.getColor(recyclerView.getContext(), android.R.color.white))
                     .addSwipeRightLabel("Delete")
+                    .setSwipeRightLabelColor(Color.parseColor("#FFFFFF"))
                     .create()
                     .decorate();
 
