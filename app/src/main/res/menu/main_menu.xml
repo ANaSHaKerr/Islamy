@@ -9,9 +9,12 @@
     <item android:id="@+id/adayaPage"
         android:icon="@drawable/doaa"
         android:title="ادعية"/>
-    <item android:id="@+id/azkarPage"
-        android:icon="@drawable/azkar"
-        android:title="اذكار"/>
+    <item android:id="@+id/azkarElsabahPage"
+        android:icon="@drawable/azkar_elsabah"
+        android:title="اذكار الصباح"/>
+    <item android:id="@+id/azkarElmasaaPage"
+        android:icon="@drawable/azkar_elmasaa"
+        android:title="اذكار المساء"/>
     <item android:id="@+id/malomatPage"
         android:icon="@drawable/malomat"
         android:title="معلومات دينية"/>

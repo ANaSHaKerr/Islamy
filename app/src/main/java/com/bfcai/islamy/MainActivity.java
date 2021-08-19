@@ -26,14 +26,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CompoundButton;
-import android.widget.Switch;
-import android.widget.TextView;
+
 import android.widget.Toast;
 
 import com.bfcai.islamy.Screens.DrawerScreen.MalomatActivity;
 import com.bfcai.islamy.Screens.DrawerScreen.TasabyhActivity;
 import com.bfcai.islamy.Screens.DrawerScreen.adayaActivity;
 import com.bfcai.islamy.Screens.DrawerScreen.azkarActivity;
+import com.bfcai.islamy.Screens.DrawerScreen.azkarElmasaa;
+import com.bfcai.islamy.Screens.DrawerScreen.azkarElsabah;
 import com.bfcai.islamy.Screens.Notes.NoteHomeActivity;
 import com.bfcai.islamy.Screens.Stories.StoriesActivity;
 
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     DrawerLayout drawerLayout;
     Toolbar toolbar;
     FirebaseAuth auth;
-    CardView islamicStories,islamicNote;
+    CardView islamicStories,islamicNote,azkarPage;
     NavigationView navigationView ;
 
 
@@ -58,6 +59,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         // خاصين بمعرفة حالة اللغه و الوضع الليلي الذي اخترهم المستخدم
         loadLocale();
+
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
         if (loadMode() == true){
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
             setTheme(R.style.darkTheme);
@@ -65,9 +69,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
             setTheme(R.style.AppTheme);
         }
-
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
         // فانكشن خاصه بكود زر الوضع الليلي
         // تم عملها بهذا الشكل لان عند وضعها داخل onSelectedMenuItem يكون هناك Bug يمكن التجربه للتاكد
@@ -80,6 +81,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toolbar = findViewById(R.id.toolbar);
         islamicStories = findViewById(R.id.islamicStories);
         islamicNote = findViewById(R.id.islamicNote);
+        azkarPage = findViewById(R.id.azkarPage);
         auth = FirebaseAuth.getInstance();
 
         // اكواد تعريف القائمه الجانبيه و العناصر بداخلها
@@ -108,6 +110,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             startActivity(new Intent(getApplicationContext(), NoteHomeActivity.class));
             finish();
         });
+        azkarPage.setOnClickListener(v ->{
+            startActivity(new Intent(getApplicationContext(), azkarActivity.class));
+            finish();
+        });
 
     }
 
@@ -122,13 +128,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.tasabyhPage:
                 startActivity(new Intent(getBaseContext(), TasabyhActivity.class));
                 break;
-            case R.id.azkarPage:
-                startActivity(new Intent(getBaseContext(), azkarActivity.class));
+            case R.id.azkarElsabahPage:
+                startActivity(new Intent(getBaseContext(), azkarElsabah.class));
+                break;
+            case R.id.azkarElmasaaPage:
+                startActivity(new Intent(getBaseContext(), azkarElmasaa.class));
                 break;
             case R.id.malomatPage:
                 startActivity(new Intent(getBaseContext(), MalomatActivity.class));
                 break;
-
             case R.id.aboutApp:
                 showDialogMenu();
                 break;
