@@ -5,6 +5,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
@@ -24,12 +25,22 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.bfcai.islamy.Screens.DrawerScreen.MalomatActivity;
+import com.bfcai.islamy.Screens.DrawerScreen.TasabyhActivity;
+import com.bfcai.islamy.Screens.DrawerScreen.adayaActivity;
+import com.bfcai.islamy.Screens.DrawerScreen.azkarActivity;
 import com.bfcai.islamy.Screens.Notes.NoteHomeActivity;
 import com.bfcai.islamy.Screens.Stories.StoriesActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Locale;
@@ -38,49 +49,57 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     DrawerLayout drawerLayout;
     Toolbar toolbar;
-    TextView textView;
     FirebaseAuth auth;
     CardView islamicStories,islamicNote;
+    NavigationView navigationView ;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // خاصين بمعرفة حالة اللغه و الوضع الليلي الذي اخترهم المستخدم
         loadLocale();
+        if (loadMode() == true){
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            setTheme(R.style.darkTheme);
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            setTheme(R.style.AppTheme);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        Menu nv = navigationView.getMenu();
-        MenuItem item = nv.findItem(R.id.darkMode);
-        SharedPreferences sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
-        final boolean isDarkModeOn = sharedPreferences.getBoolean("isDarkModeOn", false);
-        if (isDarkModeOn) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-            item.setTitle("الوضع النهاري");
 
-        }
-        else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-            item.setTitle("الوضع الليلي");
-        }
+        // فانكشن خاصه بكود زر الوضع الليلي
+        // تم عملها بهذا الشكل لان عند وضعها داخل onSelectedMenuItem يكون هناك Bug يمكن التجربه للتاكد
+        darkModeButton();
+
+        // تعريف العناصر
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
-        textView = findViewById(R.id.textView);
         toolbar = findViewById(R.id.toolbar);
         islamicStories = findViewById(R.id.islamicStories);
         islamicNote = findViewById(R.id.islamicNote);
-
         auth = FirebaseAuth.getInstance();
+
+        // اكواد تعريف القائمه الجانبيه و العناصر بداخلها
         navigationView.bringToFront();
-        ActionBarDrawerToggle toggle=new
-                ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.navigation_drawer_open,R.string.navigation_drawer_close);
+        ActionBarDrawerToggle toggle=new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.navigation_drawer_open,R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
-        navigationView.setCheckedItem(R.id.nav_home);
+
+          // تسحيل دخول للمستخدم عند تثبيت التطبيق لاول مره فقط
         if(auth.getCurrentUser() == null){
-            auth.signInAnonymously();
+            auth.signInAnonymously().addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    Toast.makeText(getBaseContext(),"مرحبا بك بتطبيق اسلامي",Toast.LENGTH_SHORT).show();
+                }
+            });
         }
+
+        // الانتقال للصفحات بالصفحه الرئيسية
         islamicStories.setOnClickListener(v -> {
             startActivity(new Intent(getApplicationContext(), StoriesActivity.class));
             finish();
@@ -89,11 +108,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             startActivity(new Intent(getApplicationContext(), NoteHomeActivity.class));
             finish();
         });
+
     }
+
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.adayaPage:
+                startActivity(new Intent(getBaseContext(), adayaActivity.class));
+                break;
+            case R.id.tasabyhPage:
+                startActivity(new Intent(getBaseContext(), TasabyhActivity.class));
+                break;
+            case R.id.azkarPage:
+                startActivity(new Intent(getBaseContext(), azkarActivity.class));
+                break;
+            case R.id.malomatPage:
+                startActivity(new Intent(getBaseContext(), MalomatActivity.class));
+                break;
 
             case R.id.aboutApp:
                 showDialogMenu();
@@ -109,31 +143,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.bfcai.islamy")));
                 break;
 
-            case R.id.darkMode:
-                SharedPreferences sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
-                    final SharedPreferences.Editor editor = sharedPreferences.edit();
-                    final boolean isDarkModeOn = sharedPreferences.getBoolean("isDarkModeOn", false);
-                    if (isDarkModeOn) {
-                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                    }
-                    else {
-                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                }
-                if (isDarkModeOn) {
 
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                    editor.putBoolean("isDarkModeOn", false);
-                    editor.apply();
-
-
-                }
-                else {
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                    editor.putBoolean("isDarkModeOn", true);
-                    editor.apply();
-
-                }
-                break;
             case R.id.translate:
                 showchangelanguagedialog();
                 break;
@@ -143,6 +153,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
+        // الديالوج الخاص ب زر عن التطبيق
     private void showDialogMenu() {
         Button btn;
         ViewGroup viewGroup = findViewById(android.R.id.content);
@@ -159,6 +170,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         btn.setOnClickListener(v-> alert.dismiss());
     }
 
+    // الديالوج الذي يظهر عند الضغط علي زر الرجوع ( onBackPress = فانكشن اساسية تبع الاندرويد استوديو)
     @Override
     public void onBackPressed(){
         if(drawerLayout.isDrawerOpen(GravityCompat.START)){
@@ -174,6 +186,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     .show();
         }
     }
+
+    // الديالوج الخاص ب تغيير اللغه
     private void showchangelanguagedialog() {
         final String[] listitems={"Arabic","English"};
         final AlertDialog.Builder mbuilder=new AlertDialog.Builder((MainActivity.this));
@@ -193,6 +207,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         malertDialog.show();
     }
 
+    // كود تغيير اللغه والحفظ ب shared prefrences
     private void setLocale(String lang) {
         Locale locale=new Locale(lang);
         Locale.setDefault(locale);
@@ -204,10 +219,51 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         editor.apply();
     }
 
+    // كود جلب اللغه من shared Prefrences
     private void loadLocale() {
         SharedPreferences preferences = getSharedPreferences("Setting", Activity.MODE_PRIVATE);
         String language = preferences.getString("My_Lang", "");
         setLocale(language);
+    }
+
+    // كود زر تغير اللغه
+    private void darkModeButton() {
+        navigationView = findViewById(R.id.nav_view);
+        Menu menu = navigationView.getMenu();
+        MenuItem menuItem = menu.findItem(R.id.darkMode);
+        menuItem.setActionView(R.layout.theme_switch);
+        final SwitchCompat  themeSwitch = (SwitchCompat) menuItem.getActionView().findViewById(R.id.action_switch);
+        if (loadMode() == true) {
+            themeSwitch.setChecked(true);
+        }
+        themeSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                    saveMode(true);
+                    recreate();
+                } else {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                    saveMode(false);
+                }
+            }
+        });
+    }
+
+    // كود حفظ الوضغ الذي اختاره المستخدم وتخزينه
+    private void saveMode(Boolean state){
+        SharedPreferences sharedPreferences = getSharedPreferences("Mode", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("NightMode", state);
+        editor.apply();
+    }
+
+    // كود جلب الوضع الذي اختاره المستخدم والبدء به بالتطبيق
+    private Boolean loadMode(){
+        SharedPreferences sharedPreferences = getSharedPreferences("Mode", MODE_PRIVATE);
+        Boolean state = sharedPreferences.getBoolean("NightMode", false);
+        return state;
     }
 
 }

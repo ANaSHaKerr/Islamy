@@ -12,7 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Islamy">
-        <activity android:name=".Screens.Notes.Components.UpdateNotesActivity"></activity>
+        <activity android:name=".Screens.DrawerScreen.MalomatActivity"></activity>
+        <activity android:name=".Screens.DrawerScreen.azkarActivity" />
+        <activity
+            android:name=".Screens.DrawerScreen.TasabyhActivity"
+            android:label="@string/title_activity_tasabyh"
+            android:theme="@style/Theme.Islamy.NoActionBar" />
+        <activity android:name=".Screens.DrawerScreen.adayaActivity" />
+        <activity android:name=".Screens.Notes.Components.UpdateNotesActivity" />
         <activity android:name=".Screens.Notes.Components.AddNotesActivity" />
         <activity android:name=".Screens.Notes.NoteHomeActivity" />
         <activity android:name=".Screens.WelcomeScreen.SplashActivity">
