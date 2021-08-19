@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     CardView islamicStories,islamicNote,azkarPage;
     NavigationView navigationView ;
 
+    //اسلامي
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
