@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Islamy">
-        <activity android:name=".Screens.DrawerScreen.azkarElmasaa"></activity>
+        <activity android:name=".PdfOpner"></activity>
+        <activity android:name=".Qraan" />
+        <activity android:name=".Screens.DrawerScreen.azkarElmasaa" />
         <activity android:name=".Screens.DrawerScreen.azkarElsabah" />
         <activity android:name=".Screens.DrawerScreen.MalomatActivity" />
         <activity android:name=".Screens.DrawerScreen.azkarActivity" />

@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     DrawerLayout drawerLayout;
     Toolbar toolbar;
     FirebaseAuth auth;
-    CardView islamicStories,islamicNote,azkarPage;
+    CardView islamicStories,islamicNote,azkarPage,qraan;
     NavigationView navigationView ;
 
     //اسلامي
@@ -84,6 +84,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         islamicNote = findViewById(R.id.islamicNote);
         azkarPage = findViewById(R.id.azkarPage);
         auth = FirebaseAuth.getInstance();
+        qraan=findViewById(R.id.Qraan);
 
         // اكواد تعريف القائمه الجانبيه و العناصر بداخلها
         navigationView.bringToFront();
@@ -101,7 +102,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
             });
         }
-
+        qraan.setOnClickListener(v->{
+            openQraan();
+        });
         // الانتقال للصفحات بالصفحه الرئيسية
         islamicStories.setOnClickListener(v -> {
             startActivity(new Intent(getApplicationContext(), StoriesActivity.class));
@@ -118,7 +121,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
+public void openQraan(){
 
+        Intent intent=new Intent(this,Qraan.class);
+        startActivity(intent);
+
+
+}
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
