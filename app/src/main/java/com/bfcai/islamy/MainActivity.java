@@ -36,6 +36,8 @@ import com.bfcai.islamy.Screens.DrawerScreen.azkarActivity;
 import com.bfcai.islamy.Screens.DrawerScreen.azkarElmasaa;
 import com.bfcai.islamy.Screens.DrawerScreen.azkarElsabah;
 import com.bfcai.islamy.Screens.Notes.NoteHomeActivity;
+import com.bfcai.islamy.Screens.Qiblah.QiblahActivity;
+import com.bfcai.islamy.Screens.Quran.Qraan;
 import com.bfcai.islamy.Screens.Stories.StoriesActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -51,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     DrawerLayout drawerLayout;
     Toolbar toolbar;
     FirebaseAuth auth;
-    CardView islamicStories,islamicNote,azkarPage,qraan;
+    CardView islamicStories,islamicNote,azkarPage,qraan,qiblahScreen;
     NavigationView navigationView ;
 
     //اسلامي
@@ -85,6 +87,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         azkarPage = findViewById(R.id.azkarPage);
         auth = FirebaseAuth.getInstance();
         qraan=findViewById(R.id.Qraan);
+        qiblahScreen = findViewById(R.id.qiblahScreen);
 
         // اكواد تعريف القائمه الجانبيه و العناصر بداخلها
         navigationView.bringToFront();
@@ -118,12 +121,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             startActivity(new Intent(getApplicationContext(), azkarActivity.class));
             finish();
         });
+        qiblahScreen.setOnClickListener(v ->{
+            startActivity(new Intent(getApplicationContext(), QiblahActivity.class));
+            finish();
+        });
 
     }
 
 public void openQraan(){
 
-        Intent intent=new Intent(this,Qraan.class);
+        Intent intent=new Intent(this, Qraan.class);
         startActivity(intent);
 
 

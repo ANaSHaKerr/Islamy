@@ -1,22 +1,41 @@
-package com.bfcai.islamy;
+package com.bfcai.islamy.Screens.Quran;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
+import android.util.Log;
 
+import com.bfcai.islamy.R;
 import com.github.barteksc.pdfviewer.PDFView;
 
 public class PdfOpner extends AppCompatActivity {
     PDFView mypdfviewer;
+    Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pdf_opner);
+        toolbar = findViewById(R.id.quranPdfToolbar);
+        setSupportActionBar(toolbar);
+        String item = getIntent().getStringExtra("item");
+        getSupportActionBar().setTitle(item+"");
         mypdfviewer=(PDFView)findViewById(R.id.pdfviewer);
 
-        String getitem=getIntent().getStringExtra("pdfFileName");
+        int num = getIntent().getIntExtra("num",0);
+        num= num+1;
+        if(num <10){
+            mypdfviewer.fromAsset("00"+ num +".pdf").load();
+        } else if (num > 10 && num< 100){
+            mypdfviewer.fromAsset("0"+ num +".pdf").load();
 
-        if (getitem.equals("Al-Fatiha"))
+        } else {
+            mypdfviewer.fromAsset( num +".pdf").load();
+
+        }
+
+   /*     if (getitem.equals("Faitha"))
         {
             mypdfviewer.fromAsset("001.pdf").load();
         } if (getitem.equals("Al-Baqarah"))
@@ -357,7 +376,7 @@ public class PdfOpner extends AppCompatActivity {
             mypdfviewer.fromAsset("113.pdf").load();
         }if (getitem.equals("An-Naas")) {
             mypdfviewer.fromAsset("114.pdf").load();
-        }
+        }*/
 
     }
 }
