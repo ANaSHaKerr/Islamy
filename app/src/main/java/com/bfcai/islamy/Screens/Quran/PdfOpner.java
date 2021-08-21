@@ -23,16 +23,24 @@ public class PdfOpner extends AppCompatActivity {
         getSupportActionBar().setTitle(item+"");
         mypdfviewer=(PDFView)findViewById(R.id.pdfviewer);
 
+        // بجيب الرقم بتاع item في listview لي كنت خزنته وبعرفه انه العناصر ترتيبها بيبدء العد من 0
         int num = getIntent().getIntExtra("num",0);
+
+        // زودت علي العنصر بتاع كل item واحد عشان ترتيب الملفات pdf علي اليمين بيبدء من 001
         num= num+1;
+
+        /*
+                هنا اهم جزئية العدد هيقعد يزيد
+                فبعد ما يزيد عن 10 اسم pdf هيبقي 0011
+                وفوق 100 هيبقي 00101
+                فعشان كدا عملت حالة if ده
+        */
         if(num <10){
             mypdfviewer.fromAsset("00"+ num +".pdf").load();
         } else if (num > 10 && num< 100){
             mypdfviewer.fromAsset("0"+ num +".pdf").load();
-
         } else {
             mypdfviewer.fromAsset( num +".pdf").load();
-
         }
 
    /*     if (getitem.equals("Faitha"))

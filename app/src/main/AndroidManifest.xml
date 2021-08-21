@@ -43,9 +43,11 @@
         <activity android:name=".Screens.Stories.Components.addPostActivity" />
         <activity android:name=".MainActivity" />
 
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
+        <service android:name=".Service.FirebasePushNotificationClass">
+            <intent-filter>
+                <action android:name="android.intent.action.RESPOND_VIA_MESSAGE"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

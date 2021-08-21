@@ -40,6 +40,7 @@ import com.bfcai.islamy.Screens.Qiblah.QiblahActivity;
 import com.bfcai.islamy.Screens.Quran.Qraan;
 import com.bfcai.islamy.Screens.Stories.StoriesActivity;
 
+import com.bfcai.islamy.Service.FirebasePushNotificationClass;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
@@ -47,6 +48,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Locale;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -73,6 +75,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             setTheme(R.style.AppTheme);
         }
 
+        Intent intentBackgroundService = new Intent(this, FirebasePushNotificationClass.class);
+        startService(intentBackgroundService);
         // فانكشن خاصه بكود زر الوضع الليلي
         // تم عملها بهذا الشكل لان عند وضعها داخل onSelectedMenuItem يكون هناك Bug يمكن التجربه للتاكد
         darkModeButton();
