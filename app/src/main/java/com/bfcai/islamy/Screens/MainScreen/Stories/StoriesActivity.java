@@ -1,4 +1,4 @@
-package com.bfcai.islamy.Screens.Stories;
+package com.bfcai.islamy.Screens.MainScreen.Stories;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,7 +14,7 @@ import com.bfcai.islamy.Adapter.StoryAdapter;
 import com.bfcai.islamy.MainActivity;
 import com.bfcai.islamy.Model.Story;
 import com.bfcai.islamy.R;
-import com.bfcai.islamy.Screens.Stories.Components.addPostActivity;
+import com.bfcai.islamy.Screens.MainScreen.Stories.Components.addPostActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentChange;

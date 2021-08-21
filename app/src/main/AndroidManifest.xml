@@ -12,21 +12,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Islamy">
-        <activity android:name=".Screens.Qiblah.QiblahActivity"></activity>
-        <activity android:name=".Screens.Quran.PdfOpner" />
-        <activity android:name=".Screens.Quran.Qraan" />
+        <activity android:name=".Screens.MainScreen.SebhaActivity"></activity>
+        <activity android:name=".Screens.MainScreen.Qiblah.QiblahActivity" />
+        <activity android:name=".Screens.MainScreen.Quran.PdfOpner" />
+        <activity android:name=".Screens.MainScreen.Quran.Qraan" />
         <activity android:name=".Screens.DrawerScreen.azkarElmasaa" />
         <activity android:name=".Screens.DrawerScreen.azkarElsabah" />
         <activity android:name=".Screens.DrawerScreen.MalomatActivity" />
-        <activity android:name=".Screens.DrawerScreen.azkarActivity" />
+        <activity android:name=".Screens.MainScreen.azkarActivity" />
         <activity
             android:name=".Screens.DrawerScreen.TasabyhActivity"
             android:label="@string/title_activity_tasabyh"
             android:theme="@style/Theme.Islamy.NoActionBar" />
         <activity android:name=".Screens.DrawerScreen.adayaActivity" />
-        <activity android:name=".Screens.Notes.Components.UpdateNotesActivity" />
-        <activity android:name=".Screens.Notes.Components.AddNotesActivity" />
-        <activity android:name=".Screens.Notes.NoteHomeActivity" />
+        <activity android:name=".Screens.MainScreen.Notes.Components.UpdateNotesActivity" />
+        <activity android:name=".Screens.MainScreen.Notes.Components.AddNotesActivity" />
+        <activity android:name=".Screens.MainScreen.Notes.NoteHomeActivity" />
         <activity android:name=".Screens.WelcomeScreen.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,17 +36,17 @@
             </intent-filter>
         </activity>
         <activity android:name=".Screens.WelcomeScreen.OnboardingActivity" />
-        <activity android:name=".Screens.Stories.Components.storyDetailsActivity" />
+        <activity android:name=".Screens.MainScreen.Stories.Components.storyDetailsActivity" />
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />
-        <activity android:name=".Screens.Stories.StoriesActivity" />
-        <activity android:name=".Screens.Stories.Components.addPostActivity" />
+        <activity android:name=".Screens.MainScreen.Stories.StoriesActivity" />
+        <activity android:name=".Screens.MainScreen.Stories.Components.addPostActivity" />
         <activity android:name=".MainActivity" />
 
         <service android:name=".Service.FirebasePushNotificationClass">
             <intent-filter>
-                <action android:name="android.intent.action.RESPOND_VIA_MESSAGE"/>
+                <action android:name="android.intent.action.RESPOND_VIA_MESSAGE" />
             </intent-filter>
         </service>
     </application>

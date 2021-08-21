@@ -1,4 +1,4 @@
-package com.bfcai.islamy.Screens.DrawerScreen;
+package com.bfcai.islamy.Screens.MainScreen;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;

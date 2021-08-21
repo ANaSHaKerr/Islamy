@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Screens.DrawerScreen.azkarActivity">
+    tools:context=".Screens.MainScreen.azkarActivity">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/azkarToolbar"
         android:layout_width="match_parent"

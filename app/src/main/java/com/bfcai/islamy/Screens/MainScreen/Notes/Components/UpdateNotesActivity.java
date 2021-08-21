@@ -1,4 +1,4 @@
-package com.bfcai.islamy.Screens.Notes.Components;
+package com.bfcai.islamy.Screens.MainScreen.Notes.Components;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import com.bfcai.islamy.Database.NoteDatabase;
 import com.bfcai.islamy.R;
-import com.bfcai.islamy.Screens.Notes.NoteHomeActivity;
+import com.bfcai.islamy.Screens.MainScreen.Notes.NoteHomeActivity;
 
 public class UpdateNotesActivity extends AppCompatActivity {
     EditText title , description;

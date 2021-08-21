@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/bakground_color"
     app:layout_behavior="@string/fab_transformation_scrim_behavior"
-    tools:context=".Screens.Notes.NoteHomeActivity"
+    tools:context=".Screens.MainScreen.Notes.NoteHomeActivity"
     android:id="@+id/layout_main"
     >
     <androidx.appcompat.widget.Toolbar

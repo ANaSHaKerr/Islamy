@@ -1,4 +1,4 @@
-package com.bfcai.islamy.Screens.Quran;
+package com.bfcai.islamy.Screens.MainScreen.Quran;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

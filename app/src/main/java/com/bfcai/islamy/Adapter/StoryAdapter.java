@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bfcai.islamy.Model.Story;
 import com.bfcai.islamy.R;
-import com.bfcai.islamy.Screens.Stories.Components.storyDetailsActivity;
+import com.bfcai.islamy.Screens.MainScreen.Stories.Components.storyDetailsActivity;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;

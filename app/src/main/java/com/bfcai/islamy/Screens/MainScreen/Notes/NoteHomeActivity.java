@@ -1,4 +1,4 @@
-package com.bfcai.islamy.Screens.Notes;
+package com.bfcai.islamy.Screens.MainScreen.Notes;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
@@ -13,8 +13,6 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import android.view.Menu;
@@ -27,7 +25,7 @@ import com.bfcai.islamy.Database.NoteDatabase;
 import com.bfcai.islamy.MainActivity;
 import com.bfcai.islamy.Model.Notes;
 import com.bfcai.islamy.R;
-import com.bfcai.islamy.Screens.Notes.Components.AddNotesActivity;
+import com.bfcai.islamy.Screens.MainScreen.Notes.Components.AddNotesActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;

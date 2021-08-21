@@ -1,4 +1,4 @@
-package com.bfcai.islamy.Screens.Qiblah;
+package com.bfcai.islamy.Screens.MainScreen.Qiblah;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;

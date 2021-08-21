@@ -3,7 +3,6 @@ package com.bfcai.islamy.Adapter;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bfcai.islamy.Model.Notes;
 import com.bfcai.islamy.R;
-import com.bfcai.islamy.Screens.Notes.Components.UpdateNotesActivity;
+import com.bfcai.islamy.Screens.MainScreen.Notes.Components.UpdateNotesActivity;
 
 import java.util.ArrayList;
 import java.util.Collection;

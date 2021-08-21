@@ -1,4 +1,4 @@
-package com.bfcai.islamy.Screens.Stories.Components;
+package com.bfcai.islamy.Screens.MainScreen.Stories.Components;
 
 import android.content.Intent;
 import android.net.Uri;

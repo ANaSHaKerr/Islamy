@@ -1,4 +1,4 @@
-package com.bfcai.islamy.Screens.Stories.Components;
+package com.bfcai.islamy.Screens.MainScreen.Stories.Components;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

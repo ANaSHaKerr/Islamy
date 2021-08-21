@@ -1,10 +1,9 @@
-package com.bfcai.islamy.Screens.Quran;
+package com.bfcai.islamy.Screens.MainScreen.Quran;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
-import android.util.Log;
 
 import com.bfcai.islamy.R;
 import com.github.barteksc.pdfviewer.PDFView;

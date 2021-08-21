@@ -32,13 +32,14 @@ import android.widget.Toast;
 import com.bfcai.islamy.Screens.DrawerScreen.MalomatActivity;
 import com.bfcai.islamy.Screens.DrawerScreen.TasabyhActivity;
 import com.bfcai.islamy.Screens.DrawerScreen.adayaActivity;
-import com.bfcai.islamy.Screens.DrawerScreen.azkarActivity;
+import com.bfcai.islamy.Screens.MainScreen.SebhaActivity;
+import com.bfcai.islamy.Screens.MainScreen.azkarActivity;
 import com.bfcai.islamy.Screens.DrawerScreen.azkarElmasaa;
 import com.bfcai.islamy.Screens.DrawerScreen.azkarElsabah;
-import com.bfcai.islamy.Screens.Notes.NoteHomeActivity;
-import com.bfcai.islamy.Screens.Qiblah.QiblahActivity;
-import com.bfcai.islamy.Screens.Quran.Qraan;
-import com.bfcai.islamy.Screens.Stories.StoriesActivity;
+import com.bfcai.islamy.Screens.MainScreen.Notes.NoteHomeActivity;
+import com.bfcai.islamy.Screens.MainScreen.Qiblah.QiblahActivity;
+import com.bfcai.islamy.Screens.MainScreen.Quran.Qraan;
+import com.bfcai.islamy.Screens.MainScreen.Stories.StoriesActivity;
 
 import com.bfcai.islamy.Service.FirebasePushNotificationClass;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -48,14 +49,13 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Locale;
-import com.google.firebase.messaging.FirebaseMessaging;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     DrawerLayout drawerLayout;
     Toolbar toolbar;
     FirebaseAuth auth;
-    CardView islamicStories,islamicNote,azkarPage,qraan,qiblahScreen;
+    CardView islamicStories,islamicNote,azkarPage,qraan,qiblahScreen,sebhaScreen;
     NavigationView navigationView ;
 
     //اسلامي
@@ -92,6 +92,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         auth = FirebaseAuth.getInstance();
         qraan=findViewById(R.id.Qraan);
         qiblahScreen = findViewById(R.id.qiblahScreen);
+        sebhaScreen = findViewById(R.id.sebhaScreen);
 
         // اكواد تعريف القائمه الجانبيه و العناصر بداخلها
         navigationView.bringToFront();
@@ -127,6 +128,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
         qiblahScreen.setOnClickListener(v ->{
             startActivity(new Intent(getApplicationContext(), QiblahActivity.class));
+            finish();
+        });
+        sebhaScreen.setOnClickListener(v -> {
+            startActivity(new Intent(getApplicationContext(), SebhaActivity.class));
             finish();
         });
 

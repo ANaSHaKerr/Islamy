@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Screens.Notes.Components.UpdateNotesActivity">
+    tools:context=".Screens.MainScreen.Notes.Components.UpdateNotesActivity">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/updateNote_toolbar"
         android:layout_width="match_parent"
