@@ -38,7 +38,7 @@ public class SebhaActivity extends AppCompatActivity {
         add = findViewById(R.id.add);
         minus = findViewById(R.id.minus);
         reset = findViewById(R.id.reset);
-        MediaPlayer mediaPlayer = MediaPlayer.create(this,R.raw.beeb);
+        MediaPlayer mediaPlayer = MediaPlayer.create(this,R.raw.beep);
 
 
         add.setOnClickListener(v->{
