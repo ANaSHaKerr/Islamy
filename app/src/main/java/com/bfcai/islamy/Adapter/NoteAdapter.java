@@ -56,6 +56,8 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.MyViewHolder>i
                 intent.putExtra("id",notesList.get(position).getId());
 
                 activity.startActivity(intent);
+
+
             }
         });
     }

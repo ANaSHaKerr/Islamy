@@ -57,7 +57,10 @@ public class NoteHomeActivity extends AppCompatActivity {
         fab.setOnClickListener(v-> {
                 Intent intent=new Intent(NoteHomeActivity.this, AddNotesActivity.class);
                 startActivity(intent);
+            overridePendingTransition(R.anim.slide_up,R.anim.no_change);
+
         });
+
 
 
         notesList = new ArrayList<>();
@@ -195,5 +198,8 @@ public class NoteHomeActivity extends AppCompatActivity {
     public void onBackPressed(){
 
         startActivity(new Intent(getBaseContext(), MainActivity.class));
+        overridePendingTransition(R.anim.no_change, R.anim.slide_down);
     }
+
+
 }

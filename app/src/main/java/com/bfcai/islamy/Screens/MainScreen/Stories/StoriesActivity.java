@@ -68,6 +68,7 @@ public class StoriesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), addPostActivity.class));
+                overridePendingTransition(R.anim.slide_up,R.anim.no_change);
                 finish();
             }
         });
@@ -94,6 +95,7 @@ public class StoriesActivity extends AppCompatActivity {
     public void onBackPressed(){
 
           startActivity(new Intent(getBaseContext(), MainActivity.class));
+        overridePendingTransition(R.anim.no_change, R.anim.slide_down);
     }
 
 }

@@ -60,11 +60,13 @@ public class SplashActivity extends AppCompatActivity {
                     editor.commit();
                     Intent intent = new Intent(SplashActivity.this, OnboardingActivity.class);
                     startActivity(intent);
+                    overridePendingTransition(R.anim.slide_up,R.anim.no_change);
                     finish();
                 }
                 else {
                     Intent intent = new Intent(SplashActivity.this, MainActivity.class);
                     startActivity(intent);
+                    overridePendingTransition(R.anim.slide_up,R.anim.no_change);
                     finish();
                 }
 

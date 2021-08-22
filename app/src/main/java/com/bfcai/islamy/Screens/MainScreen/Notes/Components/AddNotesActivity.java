@@ -45,6 +45,7 @@ public class AddNotesActivity extends AppCompatActivity {
                     Intent intent = new Intent(AddNotesActivity.this, NoteHomeActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
+                    overridePendingTransition(R.anim.slide_up,R.anim.no_change);
                     finish();
                 }
                 else // false

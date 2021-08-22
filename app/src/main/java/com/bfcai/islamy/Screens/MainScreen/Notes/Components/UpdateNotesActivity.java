@@ -50,6 +50,7 @@ public class UpdateNotesActivity extends AppCompatActivity {
                     Intent i =new Intent(UpdateNotesActivity.this, NoteHomeActivity.class);
                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(i);
+                    overridePendingTransition(R.anim.slide_up,R.anim.no_change);
                     finish();
                 }
                 else //is empty

@@ -105,6 +105,7 @@ public class addPostActivity extends AppCompatActivity {
                                         public void onComplete(@NonNull Task<DocumentReference> task) {
                                             if(task.isSuccessful()){
                                                 startActivity(new Intent(getBaseContext(), MainActivity.class));
+                                                overridePendingTransition(R.anim.slide_up,R.anim.no_change);
                                                 finish();
                                             }else {
                                                 progressBar.setVisibility(View.INVISIBLE);
@@ -146,6 +147,7 @@ public class addPostActivity extends AppCompatActivity {
     public boolean onKeyDown(int keyCode, KeyEvent event)  {
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
            startActivity(new Intent(getBaseContext(),MainActivity.class));
+            overridePendingTransition(R.anim.slide_up,R.anim.no_change);
            finish();
             return true;
         }

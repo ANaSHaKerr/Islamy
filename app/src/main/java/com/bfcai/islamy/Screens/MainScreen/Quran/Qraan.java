@@ -2,8 +2,10 @@ package com.bfcai.islamy.Screens.MainScreen.Quran;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.bfcai.islamy.MainActivity;
 import com.bfcai.islamy.R;
 
 public class Qraan extends AppCompatActivity {
@@ -69,10 +72,19 @@ public class Qraan extends AppCompatActivity {
                 intent.putExtra("num",i);
 
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_up,R.anim.no_change);
 
 
             }
         });
+
+
+    }
+    @Override
+    public void onBackPressed(){
+        Intent intent=new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_down,R.anim.no_change);
 
 
     }
