@@ -11,7 +11,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bfcai.islamy.MainActivity;
 import com.bfcai.islamy.R;
+import com.bfcai.islamy.Screens.MainScreen.Stories.StoriesActivity;
 import com.bumptech.glide.Glide;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -20,6 +22,8 @@ public class storyDetailsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        overridePendingTransition(R.anim.slide_up, R.anim.no_change);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_story_details);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -51,9 +55,18 @@ public class storyDetailsActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() == android.R.id.home){
+        if (item.getItemId() == android.R.id.home) {
             onBackPressed();
         }
         return super.onOptionsItemSelected(item);
     }
+        @Override
+        public void onBackPressed() {
+            super.onBackPressed();
+            Intent intent=new Intent(getApplicationContext(), StoriesActivity.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.no_change, R.anim.slide_down);
+            finish();
+        }
+
 }

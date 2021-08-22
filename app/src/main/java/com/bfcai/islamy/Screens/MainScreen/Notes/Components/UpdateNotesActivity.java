@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.bfcai.islamy.Database.NoteDatabase;
+import com.bfcai.islamy.MainActivity;
 import com.bfcai.islamy.R;
 import com.bfcai.islamy.Screens.MainScreen.Notes.NoteHomeActivity;
 
@@ -23,6 +24,8 @@ public class UpdateNotesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        overridePendingTransition(R.anim.slide_up, R.anim.no_change);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_notes);
         toolbar = findViewById(R.id.updateNote_toolbar);
@@ -60,5 +63,13 @@ public class UpdateNotesActivity extends AppCompatActivity {
 
             }
         });
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent=new Intent(getApplicationContext(), NoteHomeActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.no_change, R.anim.slide_down);
+        finish();
     }
 }

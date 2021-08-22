@@ -5,8 +5,10 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,6 +20,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.bfcai.islamy.Adapter.MuslimDoaaAdapter;
+import com.bfcai.islamy.MainActivity;
 import com.bfcai.islamy.Model.MuslimDoaa;
 import com.bfcai.islamy.R;
 
@@ -42,6 +45,7 @@ public class azkarActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.azkarToolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("اذكار");
+        overridePendingTransition(R.anim.slide_up, R.anim.no_change);
 
         recyclerView = findViewById(R.id.azkarList);
         doaas = new ArrayList<>();
@@ -87,5 +91,14 @@ public class azkarActivity extends AppCompatActivity {
 
         queue.add(jsonArrayRequest);
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent=new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.no_change, R.anim.slide_down);
+        finish();
     }
 }

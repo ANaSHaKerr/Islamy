@@ -1,9 +1,10 @@
-package com.bfcai.islamy.Screens.MainScreen.Qiblah;
+package com.bfcai.islamy.Screens.MainScreen;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Context;
+import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -14,6 +15,7 @@ import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bfcai.islamy.MainActivity;
 import com.bfcai.islamy.R;
 
 
@@ -26,6 +28,8 @@ public class QiblahActivity extends AppCompatActivity implements SensorEventList
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        overridePendingTransition(R.anim.slide_up, R.anim.no_change);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qiblah);
         toolbar = findViewById(R.id.qiblahToolbar);
@@ -60,5 +64,13 @@ public class QiblahActivity extends AppCompatActivity implements SensorEventList
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent=new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.no_change, R.anim.slide_down);
+        finish();
     }
 }

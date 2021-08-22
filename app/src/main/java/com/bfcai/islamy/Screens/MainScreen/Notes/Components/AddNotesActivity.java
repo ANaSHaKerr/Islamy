@@ -24,6 +24,8 @@ public class AddNotesActivity extends AppCompatActivity {
     NoteDatabase db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        overridePendingTransition(R.anim.slide_up, R.anim.no_change);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_notes);
         toolbar = findViewById(R.id.addNote_toolbar);

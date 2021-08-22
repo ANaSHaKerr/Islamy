@@ -5,6 +5,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -18,6 +19,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.bfcai.islamy.Adapter.MuslimDoaaAdapter;
+import com.bfcai.islamy.MainActivity;
 import com.bfcai.islamy.Model.MuslimDoaa;
 import com.bfcai.islamy.R;
 
@@ -35,6 +37,8 @@ public class TasabyhActivity extends AppCompatActivity {
     Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        overridePendingTransition(R.anim.slide_up, R.anim.no_change);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tasabyh);
         toolbar = findViewById(R.id.tasabyhToolbar);
@@ -86,4 +90,13 @@ public class TasabyhActivity extends AppCompatActivity {
         queue.add(jsonArrayRequest);
 
     }
+   @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent=new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.no_change, R.anim.slide_down);
+        finish();
+    }
+
 }

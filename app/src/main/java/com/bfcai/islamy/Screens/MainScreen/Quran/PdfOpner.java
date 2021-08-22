@@ -3,8 +3,10 @@ package com.bfcai.islamy.Screens.MainScreen.Quran;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import com.bfcai.islamy.MainActivity;
 import com.bfcai.islamy.R;
 import com.github.barteksc.pdfviewer.PDFView;
 
@@ -14,6 +16,8 @@ public class PdfOpner extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        overridePendingTransition(R.anim.slide_up, R.anim.no_change);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pdf_opner);
         toolbar = findViewById(R.id.quranPdfToolbar);
@@ -385,5 +389,13 @@ public class PdfOpner extends AppCompatActivity {
             mypdfviewer.fromAsset("114.pdf").load();
         }*/
 
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent=new Intent(getApplicationContext(), Qraan.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.no_change, R.anim.slide_down);
+        finish();
     }
 }

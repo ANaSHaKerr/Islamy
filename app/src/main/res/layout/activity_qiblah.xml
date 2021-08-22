@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Screens.MainScreen.Qiblah.QiblahActivity">
+    tools:context=".Screens.MainScreen.QiblahActivity">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/qiblahToolbar"
         android:layout_width="match_parent"

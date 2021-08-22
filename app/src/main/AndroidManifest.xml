@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Islamy">
         <activity android:name=".Screens.MainScreen.SebhaActivity"></activity>
-        <activity android:name=".Screens.MainScreen.Qiblah.QiblahActivity" />
+        <activity android:name=".Screens.MainScreen.QiblahActivity" />
         <activity android:name=".Screens.MainScreen.Quran.PdfOpner" />
         <activity android:name=".Screens.MainScreen.Quran.Qraan" />
         <activity android:name=".Screens.DrawerScreen.azkarElmasaa" />

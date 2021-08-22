@@ -37,7 +37,7 @@ import com.bfcai.islamy.Screens.MainScreen.azkarActivity;
 import com.bfcai.islamy.Screens.DrawerScreen.azkarElmasaa;
 import com.bfcai.islamy.Screens.DrawerScreen.azkarElsabah;
 import com.bfcai.islamy.Screens.MainScreen.Notes.NoteHomeActivity;
-import com.bfcai.islamy.Screens.MainScreen.Qiblah.QiblahActivity;
+import com.bfcai.islamy.Screens.MainScreen.QiblahActivity;
 import com.bfcai.islamy.Screens.MainScreen.Quran.Qraan;
 import com.bfcai.islamy.Screens.MainScreen.Stories.StoriesActivity;
 
@@ -77,7 +77,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         Intent intentBackgroundService = new Intent(this, FirebasePushNotificationClass.class);
         startService(intentBackgroundService);
-        overridePendingTransition(R.anim.slide_up,R.anim.no_change);
         // فانكشن خاصه بكود زر الوضع الليلي
         // تم عملها بهذا الشكل لان عند وضعها داخل onSelectedMenuItem يكون هناك Bug يمكن التجربه للتاكد
         darkModeButton();
@@ -112,68 +111,52 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             });
         }
         qraan.setOnClickListener(v->{
-            openQraan();
+            Intent intent=new Intent(this, Qraan.class);
+            startActivity(intent);
+            finish();
         });
         // الانتقال للصفحات بالصفحه الرئيسية
         islamicStories.setOnClickListener(v -> {
             startActivity(new Intent(getApplicationContext(), StoriesActivity.class));
-            overridePendingTransition(R.anim.slide_up,R.anim.no_change);
             finish();
         });
         islamicNote.setOnClickListener(v ->{
             startActivity(new Intent(getApplicationContext(), NoteHomeActivity.class));
-            overridePendingTransition(R.anim.slide_up,R.anim.no_change);
             finish();
         });
         azkarPage.setOnClickListener(v ->{
             startActivity(new Intent(getApplicationContext(), azkarActivity.class));
-            overridePendingTransition(R.anim.slide_up,R.anim.no_change);
             finish();
         });
         qiblahScreen.setOnClickListener(v ->{
             startActivity(new Intent(getApplicationContext(), QiblahActivity.class));
-            overridePendingTransition(R.anim.slide_up,R.anim.no_change);
             finish();
         });
         sebhaScreen.setOnClickListener(v -> {
             startActivity(new Intent(getApplicationContext(), SebhaActivity.class));
-            overridePendingTransition(R.anim.slide_up,R.anim.no_change);
             finish();
         });
 
     }
 
-public void openQraan(){
-
-        Intent intent=new Intent(this, Qraan.class);
-        startActivity(intent);
-    overridePendingTransition(R.anim.slide_up,R.anim.no_change);
-
-
-}
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.adayaPage:
                 startActivity(new Intent(getBaseContext(), adayaActivity.class));
-                overridePendingTransition(R.anim.slide_up,R.anim.no_change);
                 break;
             case R.id.tasabyhPage:
                 startActivity(new Intent(getBaseContext(), TasabyhActivity.class));
-                overridePendingTransition(R.anim.slide_up,R.anim.no_change);
                 break;
             case R.id.azkarElsabahPage:
                 startActivity(new Intent(getBaseContext(), azkarElsabah.class));
-                overridePendingTransition(R.anim.slide_up,R.anim.no_change);
                 break;
             case R.id.azkarElmasaaPage:
                 startActivity(new Intent(getBaseContext(), azkarElmasaa.class));
-                overridePendingTransition(R.anim.slide_up,R.anim.no_change);
                 break;
             case R.id.malomatPage:
                 startActivity(new Intent(getBaseContext(), MalomatActivity.class));
-                overridePendingTransition(R.anim.slide_up,R.anim.no_change);
                 break;
             case R.id.aboutApp:
                 showDialogMenu();
@@ -184,11 +167,9 @@ public void openQraan(){
                 String shareBody = "وَأَمَّا بِنِعْمَةِ رَبِّكَ فَحَدِّث , حمل الان تطبيق اسلامي و ستجد كل ما تحتاجه لاي مسلم  :  https://play.google.com/store/apps/details?id=com.bfcai.islamy ";
                 sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
                 startActivity(Intent.createChooser(sharingIntent, "Share using"));
-                overridePendingTransition(R.anim.slide_up,R.anim.no_change);
                 break;
             case R.id.nav_rate:
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.bfcai.islamy")));
-                overridePendingTransition(R.anim.slide_up,R.anim.no_change);
                 break;
 
 
@@ -313,5 +294,6 @@ public void openQraan(){
         Boolean state = sharedPreferences.getBoolean("NightMode", false);
         return state;
     }
+
 
 }
