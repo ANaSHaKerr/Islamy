@@ -60,6 +60,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.MyViewHolder>i
 
             }
         });
+
     }
 
     @Override
@@ -140,4 +141,16 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.MyViewHolder>i
         notesList.add(position,item);
         notifyItemInserted(position);
     }
+    public void editItem(int position)
+    {
+        Intent intent = new Intent(context, UpdateNotesActivity.class);
+        intent.putExtra("title",notesList.get(position).getTitle());
+        intent.putExtra("description",notesList.get(position).getDescription());
+        intent.putExtra("id",notesList.get(position).getId());
+
+        activity.startActivity(intent);
+    }
+
+
+
 }

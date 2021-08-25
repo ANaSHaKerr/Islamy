@@ -15,9 +15,10 @@ import com.bfcai.islamy.Database.NoteDatabase;
 import com.bfcai.islamy.MainActivity;
 import com.bfcai.islamy.R;
 import com.bfcai.islamy.Screens.MainScreen.Notes.NoteHomeActivity;
+import com.google.android.material.textfield.TextInputEditText;
 
 public class UpdateNotesActivity extends AppCompatActivity {
-    EditText title , description;
+    TextInputEditText title , description;
     Button updateNotes;
     String id;
     Toolbar toolbar;
@@ -30,7 +31,6 @@ public class UpdateNotesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_update_notes);
         toolbar = findViewById(R.id.updateNote_toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("تحديث حمد");
         title = findViewById(R.id.update_notes_et_title);
         description = findViewById(R.id.update_notes_et_description);
 
