@@ -5,6 +5,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.bfcai.islamy.MainActivity;
 import com.bfcai.islamy.R;
@@ -16,14 +17,15 @@ public class PdfOpner extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        overridePendingTransition(R.anim.slide_up, R.anim.no_change);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pdf_opner);
         toolbar = findViewById(R.id.quranPdfToolbar);
         setSupportActionBar(toolbar);
+
         String item = getIntent().getStringExtra("item");
-        getSupportActionBar().setTitle(item+"");
+        TextView title = findViewById(R.id.suarhTitle);
+        title.setText(item+"");
         mypdfviewer=(PDFView)findViewById(R.id.pdfviewer);
 
         // بجيب الرقم بتاع item في listview لي كنت خزنته وبعرفه انه العناصر ترتيبها بيبدء العد من 0
@@ -392,10 +394,8 @@ public class PdfOpner extends AppCompatActivity {
     }
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
         Intent intent=new Intent(getApplicationContext(), Qraan.class);
         startActivity(intent);
         overridePendingTransition(R.anim.no_change, R.anim.slide_down);
-        finish();
     }
 }

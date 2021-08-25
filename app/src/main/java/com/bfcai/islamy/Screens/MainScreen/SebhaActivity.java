@@ -35,12 +35,11 @@ public class SebhaActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("مسبحة");
 
         textView = findViewById(R.id.textView);
-        add = findViewById(R.id.add);
         minus = findViewById(R.id.minus);
         reset = findViewById(R.id.reset);
+
+        add = findViewById(R.id.add);
         MediaPlayer mediaPlayer = MediaPlayer.create(this,R.raw.beep);
-
-
         add.setOnClickListener(v->{
             addCounter.run();
             mediaPlayer.start();

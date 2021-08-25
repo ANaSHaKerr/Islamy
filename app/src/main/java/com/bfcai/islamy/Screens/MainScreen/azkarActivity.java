@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,6 +38,7 @@ public class azkarActivity extends AppCompatActivity {
     private static String JSON_URL = "https://muslim-api.herokuapp.com/azkarApi";
     MuslimDoaaAdapter adapter;
     Toolbar toolbar;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +46,8 @@ public class azkarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_azkar);
         toolbar = findViewById(R.id.azkarToolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("اذكار");
         overridePendingTransition(R.anim.slide_up, R.anim.no_change);
+        progressBar = findViewById(R.id.azkarProgress);
 
         recyclerView = findViewById(R.id.azkarList);
         doaas = new ArrayList<>();
@@ -61,13 +63,12 @@ public class azkarActivity extends AppCompatActivity {
                 for (int i = 0; i < response.length(); i++) {
                     try {
                         JSONObject songObject = response.getJSONObject(i);
-
                         MuslimDoaa doaa = new MuslimDoaa();
                         doaa.setTitle(songObject.getString("zkr").toString());
                         doaa.setSubtitle(songObject.getString("subtitile".toString()));
                         doaa.setNum(songObject.getString("num".toString()));
-
                         doaas.add(doaa);
+                        progressBar.setVisibility(View.INVISIBLE);
 
                     } catch (JSONException e) {
                         Toast toast=Toast.makeText(getApplicationContext(),"JSON EXCEPTION e ERROR",Toast.LENGTH_SHORT);

@@ -4,16 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bakground_color"
     tools:context=".Screens.MainScreen.Quran.PdfOpner">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/quranPdfToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/dark_blue"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:background="@color/app_Color"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        />
+
+        android:elevation="8dp"
+        >
+        <TextView
+            android:id="@+id/suarhTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:foregroundGravity="center"
+            android:textSize="26sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:text=""/>
+    </androidx.appcompat.widget.Toolbar>
 
     <com.github.barteksc.pdfviewer.PDFView
         android:id="@+id/pdfviewer"

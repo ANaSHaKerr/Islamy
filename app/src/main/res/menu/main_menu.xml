@@ -4,29 +4,29 @@
 <group android:checkableBehavior="single">
     <item android:id="@+id/tasabyhPage"
         android:icon="@drawable/tasabeh"
-        android:title="تسابيح"
+        android:title="@string/tasabyh"
         />
     <item android:id="@+id/adayaPage"
         android:icon="@drawable/doaa"
-        android:title="ادعية"/>
+        android:title="@string/adaya"/>
     <item android:id="@+id/azkarElsabahPage"
         android:icon="@drawable/azkar_elsabah"
-        android:title="اذكار الصباح"/>
+        android:title="@string/azkarElsabah"/>
     <item android:id="@+id/azkarElmasaaPage"
         android:icon="@drawable/azkar_elmasaa"
-        android:title="اذكار المساء"/>
+        android:title="@string/azkarElmasaa"/>
     <item android:id="@+id/malomatPage"
         android:icon="@drawable/malomat"
-        android:title="معلومات دينية"/>
+        android:title="@string/malomatDenya"/>
 </group>
 
     <group android:checkableBehavior="single" >
 
-        <item android:title="الاعدادات">
+        <item android:title="@string/Setting">
             <menu>
                 <item
                     android:id="@+id/darkMode"
-                    android:title="الوضع الليلي"
+                    android:title="@string/NightMode"
                     android:icon="@drawable/ic_baseline_wb_sunny_24"
                     app:actionLayout="@layout/theme_switch"
                     />
@@ -35,7 +35,7 @@
                     android:icon="@drawable/ic_baseline_g_translate_24"
                     />
                 <item android:id="@+id/aboutApp"
-                    android:title="عن التطبيق"
+                    android:title="@string/aboutApp"
                     android:icon="@drawable/ic_baseline_info_24"
                     />
 
@@ -43,19 +43,19 @@
         </item>
     </group>
 
-    <item android:title="شارك">
+    <item android:title="@string/Share">
 
         <menu>
 
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_baseline_share_24"
-                android:title="مشاركة" />
+                android:title="@string/shareApp" />
 
             <item
                 android:id="@+id/nav_rate"
                 android:icon="@drawable/ic_baseline_rate_review_24"
-                android:title="تقييم التطبيق" />
+                android:title="@string/rateApp" />
         </menu>
     </item>
 
