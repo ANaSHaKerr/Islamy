@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,6 +37,7 @@ public class adayaActivity extends AppCompatActivity {
     private static String JSON_URL = "https://muslim-api.herokuapp.com/adayaApi";
     MuslimDoaaAdapter adapter;
     Toolbar toolbar;
+    ProgressBar progressBar;
 
 
     @Override
@@ -46,7 +48,7 @@ public class adayaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_adaya);
         toolbar = findViewById(R.id.adayaToolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("ادعية");
+        progressBar = findViewById(R.id.adayaProgress);
 
         recyclerView = findViewById(R.id.adayaList);
         doaas = new ArrayList<>();
@@ -67,6 +69,7 @@ public class adayaActivity extends AppCompatActivity {
                         doaa.setTitle(songObject.getString("title").toString());
                         doaa.setSubtitle(songObject.getString("subtitle".toString()));
                         //doaa.setNum(songObject.getString("num".toString()));
+                        progressBar.setVisibility(View.INVISIBLE);
 
                         doaas.add(doaa);
 

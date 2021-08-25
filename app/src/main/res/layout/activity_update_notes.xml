@@ -9,35 +9,58 @@
         android:id="@+id/updateNote_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/dark_blue"
+        android:background="@color/purple_500"
+        app:title="@string/note_add_edit_tollBar"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <EditText
+        app:layout_constraintStart_toStartOf="parent"/>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:id="@+id/update_notes_et_title_layout"
         android:layout_below="@id/updateNote_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:hint="Title"
-        android:id="@+id/update_notes_et_title"
-        />
+        android:textColorHint="@color/purple_500"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-    <EditText
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/update_notes_et_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:hint="@string/note_title_et"
+            android:textColor="@color/purple_500"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/update_notes_et_description_layout"
+        android:layout_below="@+id/update_notes_et_title_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:hint="Description"
-        android:id="@+id/update_notes_et_description"
-        android:layout_below="@+id/update_notes_et_title"
-        />
+        android:textColorHint="@color/purple_500"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/update_notes_et_description"
+            android:layout_below="@+id/update_notes_et_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:hint="@string/note_description_et"
+            android:textColor="@color/purple_500"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:layout_alignParentBottom="true"
+        app:backgroundTint="@null"
         android:background="@drawable/custom_btn_bg"
-        android:text="Update Note"
+        android:text="@string/note_Edit_btn"
         android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="@color/white"

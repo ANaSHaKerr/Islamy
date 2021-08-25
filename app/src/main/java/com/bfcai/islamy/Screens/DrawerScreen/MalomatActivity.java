@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,6 +37,7 @@ public class MalomatActivity extends AppCompatActivity {
     private static String JSON_URL = "https://muslim-api.herokuapp.com/malomatApi";
     MuslimDoaaAdapter adapter;
     Toolbar toolbar;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +47,7 @@ public class MalomatActivity extends AppCompatActivity {
         setContentView(R.layout.activity_malomat);
         toolbar = findViewById(R.id.malomatToolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("معلومات دينية");
-
+        progressBar =findViewById(R.id.malomatProgress);
         recyclerView = findViewById(R.id.malomatist);
         doaas = new ArrayList<>();
 

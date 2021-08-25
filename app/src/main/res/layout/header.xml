@@ -12,12 +12,11 @@
 
 
     <TextView
-        android:id="@+id/tv1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/lalezar"
         android:text="@string/app_name"
-        android:textColor="@color/text_color2"
+        android:textColor="@color/background"
         android:textSize="40sp"
         app:layout_constraintBottom_toTopOf="@+id/textView5"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,8 +31,8 @@
         android:layout_marginBottom="24dp"
 
         android:fontFamily="@font/rakkas"
-        android:text="@string/textView5"
-        android:textColor="@color/text_color2"
+        android:text="@string/mainDes"
+        android:textColor="@color/background"
         android:textSize="23sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

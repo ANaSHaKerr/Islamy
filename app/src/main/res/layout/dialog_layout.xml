@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
-            android:text="عن التطبيق"
+            android:text="@string/aboutDialog"
             android:textStyle="bold"
             android:textSize="23sp"
             android:textColor="@color/white"/>
@@ -34,7 +34,7 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
-            android:text="هذا تطبيق اسلامي يحتوي علي كل ما يحتاج اي مسلم في حياته اليومية"
+            android:text="@string/aboutDialogDes"
             android:gravity="center"
             android:layout_gravity="center"
             android:textSize="18sp"
@@ -44,12 +44,15 @@
             android:layout_width="100dp"
             android:layout_height="40dp"
             android:background="@drawable/button_style"
-
+            android:elevation="8dp"
             android:layout_marginTop="35dp"
             android:layout_marginBottom="35dp"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
-            android:text="مفهوم"/>
+            android:text="@string/ok"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"/>
 
 
 

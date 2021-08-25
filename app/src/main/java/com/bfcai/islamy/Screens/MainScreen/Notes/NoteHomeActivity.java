@@ -51,16 +51,17 @@ public class NoteHomeActivity extends AppCompatActivity {
         coordinatorLayout =findViewById(R.id.layout_main);
         recyclerView = findViewById(R.id.noteRecycle);
         fab = findViewById(R.id.note_fab);
-        toolbar = findViewById(R.id.note_toolbar);
+
+        Toolbar toolbar = findViewById(R.id.toll_bar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("النوتة التحميدية");
+        setSupportActionBar(toolbar);
+
         fab.setOnClickListener(v-> {
                 Intent intent=new Intent(NoteHomeActivity.this, AddNotesActivity.class);
                 startActivity(intent);
             overridePendingTransition(R.anim.slide_up,R.anim.no_change);
 
         });
-
 
 
         notesList = new ArrayList<>();
@@ -76,6 +77,9 @@ public class NoteHomeActivity extends AppCompatActivity {
 
         ItemTouchHelper helper =new ItemTouchHelper(callback);
         helper.attachToRecyclerView(recyclerView);
+
+        ItemTouchHelper itemTouchHelper =new ItemTouchHelper(edit);
+        itemTouchHelper.attachToRecyclerView(recyclerView);
     }
 
     void fetchAllNotesFromDatabase(){//now will get notes from database
@@ -98,9 +102,9 @@ public class NoteHomeActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.note_menu,menu);
 
+
         MenuItem search = menu.findItem(R.id.searchbar);
         SearchView searchView = (SearchView) search.getActionView();
-        searchView.setQueryHint("Search Notes Here");
 
         SearchView.OnQueryTextListener listener = new SearchView.OnQueryTextListener() { // معني كلمةQuery هو النص المكتوب في الشريط
             @Override
@@ -153,8 +157,8 @@ public class NoteHomeActivity extends AppCompatActivity {
             Notes item =adapter.getList().get(position);
             adapter.removeItem(position);
 
-            Snackbar snackbar = Snackbar.make(coordinatorLayout,"Item Deleted",Snackbar.LENGTH_LONG)
-                    .setAction("UNDO", new View.OnClickListener() {
+            Snackbar snackbar = Snackbar.make(coordinatorLayout,R.string.note_snackBar,Snackbar.LENGTH_LONG)
+                    .setAction(R.string.note_undo, new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {//this situation up when Snackbar is visible(means undo remove the item)
                             adapter.restoreItem(item,position);
@@ -174,7 +178,7 @@ public class NoteHomeActivity extends AppCompatActivity {
 
                         }
                     });
-            snackbar.setActionTextColor(Color.YELLOW);
+            snackbar.setActionTextColor(Color.GREEN);
             snackbar.show();
         }
         public void onChildDraw (Canvas c, RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive){
@@ -183,7 +187,7 @@ public class NoteHomeActivity extends AppCompatActivity {
                     .addSwipeRightBackgroundColor(ContextCompat.getColor(NoteHomeActivity.this, android.R.color.holo_red_dark))
                     .addSwipeRightActionIcon(R.drawable.ic_baseline_delete_24)
                     .setActionIconTint(ContextCompat.getColor(recyclerView.getContext(), android.R.color.white))
-                    .addSwipeRightLabel("Delete")
+                    .addSwipeRightLabel("حذف")
                     .setSwipeRightLabelColor(Color.parseColor("#FFFFFF"))
                     .create()
                     .decorate();
@@ -192,7 +196,36 @@ public class NoteHomeActivity extends AppCompatActivity {
 
         }
     };
+    ItemTouchHelper.SimpleCallback edit= new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT) {
 
+        @Override
+        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+            return false;
+        }
+
+        @Override
+        public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+
+            int position = viewHolder.getAdapterPosition();
+            adapter.editItem(position);
+
+        }
+
+        public void onChildDraw (Canvas c, RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive){
+            new RecyclerViewSwipeDecorator.Builder(NoteHomeActivity.this, c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
+
+                    .addSwipeLeftBackgroundColor(ContextCompat.getColor(NoteHomeActivity.this, R.color.purple_500))
+                    .addSwipeLeftActionIcon(R.drawable.ic_edit)
+                    .setActionIconTint(ContextCompat.getColor(recyclerView.getContext(), android.R.color.white))
+                    .addSwipeLeftLabel("تعديل")
+                    .setSwipeLeftLabelColor(Color.parseColor("#FFFFFF"))
+                    .create()
+                    .decorate();
+
+            super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
+
+        }
+    };
 
     @Override
     public void onBackPressed(){

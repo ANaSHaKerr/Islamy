@@ -15,12 +15,13 @@ import android.widget.Toast;
 import com.bfcai.islamy.Database.NoteDatabase;
 import com.bfcai.islamy.R;
 import com.bfcai.islamy.Screens.MainScreen.Notes.NoteHomeActivity;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 public class AddNotesActivity extends AppCompatActivity {
-    EditText title,description;
+    TextInputEditText title,description;
     Button addNote;
     Toolbar toolbar;
-
     NoteDatabase db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +31,6 @@ public class AddNotesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_notes);
         toolbar = findViewById(R.id.addNote_toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("اضف حمد");
         title = findViewById(R.id.add_notes_et_title);
         description = findViewById(R.id.add_notes_et_description);
 
