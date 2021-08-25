@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,6 +38,7 @@ public class azkarElmasaa extends AppCompatActivity {
     private static String JSON_URL = "https://muslim-api.herokuapp.com/azkarElmasaaApi";
     MuslimDoaaAdapter adapter;
     Toolbar toolbar;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +48,7 @@ public class azkarElmasaa extends AppCompatActivity {
         setContentView(R.layout.activity_azkar_elmasaa);
         toolbar = findViewById(R.id.azkarElmasaaToolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("اذكار المساء");
+        progressBar = findViewById(R.id.azkarElmasaaProgress);
 
         recyclerView = findViewById(R.id.azkarElmasaaList);
         doaas = new ArrayList<>();
@@ -67,6 +69,7 @@ public class azkarElmasaa extends AppCompatActivity {
                         doaa.setTitle(songObject.getString("zekr").toString());
                         doaa.setSubtitle(songObject.getString("bless".toString()));
                         doaa.setNum(songObject.getString("repeat".toString()));
+                        progressBar.setVisibility(View.INVISIBLE);
 
                         doaas.add(doaa);
 

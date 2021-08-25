@@ -2,6 +2,7 @@ package com.bfcai.islamy.Screens.MainScreen.Quran;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -9,10 +10,13 @@ import androidx.core.view.GravityCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -23,14 +27,18 @@ public class Qraan extends AppCompatActivity {
     ListView pdflistview;
     Toolbar toolbar;
 
+    EditText theFilter;
+    ArrayAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qraan);
+
         pdflistview=findViewById(R.id.surah_name);
+        theFilter =  findViewById(R.id.searchFilter);
+
         toolbar = findViewById(R.id.quranToolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(R.string.qraanTitle);
         String[]pdfFilenames={getString(R.string.qraan1),getString(R.string.qraan2),getString(R.string.qraan3),getString(R.string.qraan4),getString(R.string.qraan5),getString(R.string.qraan6),getString(R.string.qraan7),
                 getString(R.string.qraan8),getString(R.string.qraan9),getString(R.string.qraan10),getString(R.string.qraan11),getString(R.string.qraan12),getString(R.string.qraan13),getString(R.string.qraan14),getString(R.string.qraan15),getString(R.string.qraan16),getString(R.string.qraan17),
                 getString(R.string.qraan18),getString(R.string.qraan19),getString(R.string.qraan20)
@@ -48,21 +56,25 @@ public class Qraan extends AppCompatActivity {
                 ,getString(R.string.qraan102),getString(R.string.qraan103),getString(R.string.qraan104),getString(R.string.qraan105),getString(R.string.qraan106),getString(R.string.qraan107),getString(R.string.qraan108)
                 ,getString(R.string.qraan109),getString(R.string.qraan110),getString(R.string.qraan111),getString(R.string.qraan112),getString(R.string.qraan113),getString(R.string.qraan114)};
 
-        ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,pdfFilenames)
-        {
-            //Alt + insert   use override method
 
-
-            @NonNull
+        adapter = new ArrayAdapter(this, R.layout.quran_listitem_layout, pdfFilenames);
+        pdflistview.setAdapter(adapter);
+        theFilter.addTextChangedListener(new TextWatcher() {
             @Override
-            public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-                View view=super.getView(position, convertView, parent);
-                TextView myText=(TextView) view.findViewById(android.R.id.text1);
-                return super.getView(position, convertView, parent);
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
             }
-        };
-        pdflistview.setAdapter(adapter);
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                (Qraan.this).adapter.getFilter().filter(charSequence);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
         pdflistview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -72,7 +84,7 @@ public class Qraan extends AppCompatActivity {
                 intent.putExtra("num",i);
 
                 startActivity(intent);
-                overridePendingTransition(R.anim.slide_up,R.anim.no_change);
+                overridePendingTransition(R.anim.slide_up, R.anim.no_change);
 
 
             }
@@ -84,7 +96,7 @@ public class Qraan extends AppCompatActivity {
     public void onBackPressed(){
         Intent intent=new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
-        overridePendingTransition(R.anim.slide_down,R.anim.no_change);
+        overridePendingTransition(R.anim.no_change,R.anim.slide_down);
 
 
     }

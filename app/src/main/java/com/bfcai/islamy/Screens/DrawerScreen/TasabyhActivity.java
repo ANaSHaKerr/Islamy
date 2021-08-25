@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,6 +36,8 @@ public class TasabyhActivity extends AppCompatActivity {
     private static String JSON_URL = "https://muslim-api.herokuapp.com/TasabyhApi";
     MuslimDoaaAdapter adapter;
     Toolbar toolbar;
+    ProgressBar progressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         overridePendingTransition(R.anim.slide_up, R.anim.no_change);
@@ -43,7 +46,7 @@ public class TasabyhActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tasabyh);
         toolbar = findViewById(R.id.tasabyhToolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("تسابيح");
+        progressBar = findViewById(R.id.tasabyhProgress);
 
         recyclerView = findViewById(R.id.tasabyhList);
         doaas = new ArrayList<>();
@@ -64,7 +67,7 @@ public class TasabyhActivity extends AppCompatActivity {
                         doaa.setTitle(songObject.getString("tasbyh").toString());
                         doaa.setSubtitle(songObject.getString("subtitile".toString()));
                         doaa.setNum(songObject.getString("num".toString()));
-
+                        progressBar.setVisibility(View.INVISIBLE);
                         doaas.add(doaa);
 
                     } catch (JSONException e) {

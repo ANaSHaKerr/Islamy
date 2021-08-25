@@ -13,8 +13,17 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string name="searchSurah">ابحث عن سوره</string>
+    <string name="closeProject">اغلاق التطبيق</string>
+    <string name="closeDialogDes">هل انت متاكد انك تريد اغلاق التطبيق ؟</string>
+    <string name="yes">نعم</string>
+    <string name="No">لا</string>
+    <string name="arabic">العربية</string>
+    <string name="english">الانجليزية</string>
+    <string name="ok">مفهوم</string>
+    <string name="aboutDialogDes">هذا تطبيق اسلامي يحتوي علي كل ما يحتاج اي مسلم في حياته اليومية</string>
+    <string name="aboutDialog">عن التطبيق</string>
     <string name="qraanTitle">القران</string>
     <string name="qraan1">الفاتحة</string>
     <string name="qraan2">البقرة</string>
@@ -130,4 +139,21 @@
     <string name="qraan112">الاخلاص</string>
     <string name="qraan113">الفلق</string>
     <string name="qraan114">الناس</string>
+    <string name="tasabyh">تسابيح</string>
+    <string name="adaya">ادعية</string>
+    <string name="azkarElsabah">اذكار الصباح</string>
+    <string name="azkarElmasaa">اذكار المساء</string>
+    <string name="malomatDenya">معلومات دينية</string>
+    <string name="Setting">الاعدادات</string>
+    <string name="NightMode">الوضع الليلي</string>
+    <string name="aboutApp">عن التطبيق</string>
+    <string name="Share">شارك</string>
+    <string name="shareApp">مشاركة</string>
+    <string name="rateApp">تقييم التطبيق</string>
+    <string name="sebhaTitle">سبحة</string>
+    <string name="qiblahTitle">القبلة</string>
+    <string name="azkarTitle">اذكار</string>
+    <string name="stories">قصص اسلامية</string>
+    <string name="noteTitle">المذكرة</string>
+    <string name="mainDes">وَأَمَّا بِنِعْمَةِ رَبِّكَ فَحَدِّثْ</string>
 </resources>

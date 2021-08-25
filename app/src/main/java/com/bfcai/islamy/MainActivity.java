@@ -11,6 +11,7 @@ import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -19,6 +20,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -27,6 +29,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CompoundButton;
 
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bfcai.islamy.Screens.DrawerScreen.MalomatActivity;
@@ -55,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     DrawerLayout drawerLayout;
     Toolbar toolbar;
     FirebaseAuth auth;
-    CardView islamicStories,islamicNote,azkarPage,qraan,qiblahScreen,sebhaScreen;
+    LinearLayout islamicStories,islamicNote,azkarPage,qraan,qiblahScreen,sebhaScreen;
     NavigationView navigationView ;
 
     //اسلامي
@@ -67,7 +72,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        if (loadMode() == true){
+
+        if (loadMode()){
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
             setTheme(R.style.darkTheme);
         } else {
@@ -97,25 +103,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // اكواد تعريف القائمه الجانبيه و العناصر بداخلها
         navigationView.bringToFront();
         ActionBarDrawerToggle toggle=new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.navigation_drawer_open,R.string.navigation_drawer_close);
+        toggle.getDrawerArrowDrawable().setColor( getResources().getColor(R.color.background));
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
 
           // تسحيل دخول للمستخدم عند تثبيت التطبيق لاول مره فقط
         if(auth.getCurrentUser() == null){
-            auth.signInAnonymously().addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    Toast.makeText(getBaseContext(),"مرحبا بك بتطبيق اسلامي",Toast.LENGTH_SHORT).show();
-                }
-            });
+            auth.signInAnonymously().addOnCompleteListener(task -> Toast.makeText(getBaseContext(),"مرحبا بك بتطبيق اسلامي",Toast.LENGTH_SHORT).show());
         }
+
+        // الانتقال للصفحات بالصفحه الرئيسية
         qraan.setOnClickListener(v->{
             Intent intent=new Intent(this, Qraan.class);
             startActivity(intent);
             finish();
+            overridePendingTransition(R.anim.slide_up,R.anim.no_change);
+
         });
-        // الانتقال للصفحات بالصفحه الرئيسية
         islamicStories.setOnClickListener(v -> {
             startActivity(new Intent(getApplicationContext(), StoriesActivity.class));
             finish();
@@ -140,6 +145,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
@@ -182,12 +188,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
+
         // الديالوج الخاص ب زر عن التطبيق
     private void showDialogMenu() {
         Button btn;
         ViewGroup viewGroup = findViewById(android.R.id.content);
         AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
-      //  dialog.setView(R.layout.dialog_layout).create().show();
         View view = LayoutInflater.from(MainActivity.this).inflate(R.layout.dialog_layout,viewGroup,false);
         btn = view.findViewById(R.id.dialog_btn);
         dialog.setCancelable(false);
@@ -206,22 +212,40 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             drawerLayout.closeDrawer(GravityCompat.START);
         }
         else {
-            new AlertDialog.Builder(this)
+            TextView title =  new TextView(getBaseContext());
+            title.setText(R.string.closeProject);
+            title.setGravity(Gravity.CENTER);
+            title.setTextSize(25);
+            title.setTextColor(getResources().getColor(R.color.text_color));
+
+            new AlertDialog.Builder(this,R.style.AlertDialogCustom)
                     .setIcon(android.R.drawable.ic_dialog_alert)
-                    .setTitle("اغلاق التطبيق")
-                    .setMessage("هل انت متاكد انك تريد اغلاق التطبيق ؟")
-                    .setPositiveButton("نعم", (dialog, which) -> finish())
-                    .setNegativeButton("لا", null)
+                    .setCustomTitle(title)
+                    .setMessage(R.string.closeDialogDes)
+                    .setPositiveButton(R.string.yes, (dialog, which) -> finish())
+                    .setNegativeButton(R.string.No, null)
                     .show();
         }
     }
+    int selectedItems;
+    String currentLang ;
 
     // الديالوج الخاص ب تغيير اللغه
     private void showchangelanguagedialog() {
-        final String[] listitems={"Arabic","English"};
-        final AlertDialog.Builder mbuilder=new AlertDialog.Builder((MainActivity.this));
-        mbuilder.setTitle("Change Languages");
-        mbuilder.setSingleChoiceItems(listitems, -1, (dialog, i) -> {
+        if(currentLang.equals("en")){
+            selectedItems = 1;
+        } else{
+            selectedItems = 0;
+        }
+        final String[][] listitems = {{getString(R.string.arabic), getString(R.string.english)}};
+        final AlertDialog.Builder mbuilder=new AlertDialog.Builder(this,R.style.AlertDialogCustom);
+        TextView title =  new TextView(getBaseContext());
+        title.setText(R.string.changeLanguage);
+        title.setTextSize(25);
+        title.setGravity(Gravity.CENTER);
+        title.setTextColor(getResources().getColor(R.color.text_color));
+        mbuilder.setCustomTitle(title);
+        mbuilder.setSingleChoiceItems(listitems[0], selectedItems, (dialog, i) -> {
             if (i == 0) {
                 setLocale("ar");
                 recreate();
@@ -229,6 +253,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             } else {
                 setLocale("en");
                 recreate();
+
             }
             dialog.dismiss();
         });
@@ -246,6 +271,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         SharedPreferences.Editor editor=getSharedPreferences("Setting",MODE_PRIVATE).edit();
         editor.putString("My_Lang",lang);
         editor.apply();
+
     }
 
     // كود جلب اللغه من shared Prefrences
@@ -253,6 +279,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         SharedPreferences preferences = getSharedPreferences("Setting", Activity.MODE_PRIVATE);
         String language = preferences.getString("My_Lang", "");
         setLocale(language);
+        if(language.equals("ar")){
+            currentLang = "ar";
+        }else {
+            currentLang = "en";
+        }
     }
 
     // كود زر تغير اللغه
@@ -262,7 +293,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         MenuItem menuItem = menu.findItem(R.id.darkMode);
         menuItem.setActionView(R.layout.theme_switch);
         final SwitchCompat  themeSwitch = (SwitchCompat) menuItem.getActionView().findViewById(R.id.action_switch);
-        if (loadMode() == true) {
+        if (loadMode()) {
             themeSwitch.setChecked(true);
         }
         themeSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

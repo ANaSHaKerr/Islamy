@@ -4,6 +4,16 @@
     <string name="changeLanguage">Change Language</string>
     <string name="navigation_drawer_open" translatable="false">فتح</string>
     <string name="navigation_drawer_close" translatable="false">اغلاق</string>
+    <string name="searchSurah">Search For Surah</string>
+    <string name="closeProject">Close Project</string>
+    <string name="closeDialogDes">Do you want to close Project ?</string>
+    <string name="yes">Yes</string>
+    <string name="No">No</string>
+    <string name="arabic">Arabic</string>
+    <string name="english">English</string>
+    <string name="ok">ok</string>
+    <string name="aboutDialogDes">This is islamic app has all what any muslim need in his daily life</string>
+    <string name="aboutDialog">About App</string>
     <string name="qraanTitle">Quran</string>
     <string name="qraan1">Faitha</string>
     <string name="qraan2">Al-Baqarah</string>
@@ -119,4 +129,22 @@
     <string name="qraan112">Al-Ikhlaas</string>
     <string name="qraan113">Al-Falaq</string>
     <string name="qraan114">An-Naas</string>
+    <string name="tasabyh">Tasabyh</string>
+    <string name="adaya">Adaya</string>
+    <string name="azkarElsabah">Morning Rememberance</string>
+    <string name="azkarElmasaa">Evening Rememberance</string>
+    <string name="malomatDenya">islamic information</string>
+    <string name="Setting">Setting</string>
+    <string name="NightMode">Night Mode</string>
+    <string name="aboutApp">About App</string>
+    <string name="Share">Share</string>
+    <string name="shareApp">Share App</string>
+    <string name="rateApp">Rate App</string>
+    <string name="sebhaTitle">Sebha</string>
+    <string name="qiblahTitle">Qebla</string>
+    <string name="azkarTitle">Azkar</string>
+    <string name="stories">Stories</string>
+    <string name="noteTitle">Note</string>
+    <string name="mainDes">And for the blessing of god speak</string>
+
 </resources>
