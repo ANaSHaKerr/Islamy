@@ -18,7 +18,7 @@
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:contentScrim="@color/purple_500"
+            app:contentScrim="@color/background"
             app:expandedTitleMarginStart="30dp"
             app:expandedTitleMarginEnd="30dp"
             android:fitsSystemWindows="true"
@@ -39,6 +39,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="?actionBarSize"
                 app:layout_collapseMode="pin"
+                app:titleTextColor="@color/white"
                 app:title="@string/note_title">
 
             </androidx.appcompat.widget.Toolbar>

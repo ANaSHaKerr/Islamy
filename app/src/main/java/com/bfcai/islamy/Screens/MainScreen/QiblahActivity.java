@@ -34,7 +34,6 @@ public class QiblahActivity extends AppCompatActivity implements SensorEventList
         setContentView(R.layout.activity_qiblah);
         toolbar = findViewById(R.id.qiblahToolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("اتجاه الكعبة");
         compass = findViewById(R.id.compass);
 
         sensorManager = (SensorManager)getSystemService(Context.SENSOR_SERVICE);

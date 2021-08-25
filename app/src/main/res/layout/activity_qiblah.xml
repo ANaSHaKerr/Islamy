@@ -4,17 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bakground_color"
     android:orientation="vertical"
     tools:context=".Screens.MainScreen.QiblahActivity">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/qiblahToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/dark_blue"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:background="@color/app_Color"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        />
+
+        android:elevation="8dp"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:foregroundGravity="center"
+            android:textSize="26sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:text="@string/qiblahTitle"/>
+    </androidx.appcompat.widget.Toolbar>
     <ImageView
         android:id="@+id/compass"
         android:layout_width="280dp"
