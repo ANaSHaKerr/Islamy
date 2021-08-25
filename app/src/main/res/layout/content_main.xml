@@ -6,11 +6,11 @@
     android:layout_height="match_parent"
     android:background="@color/bakground_color"
    >
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/bakground_color"
-        >
+        android:layout_height="wrap_content"
+        android:background="@color/bakground_color">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -34,11 +34,11 @@
             android:layout_marginLeft="8dp"
             android:layout_marginTop="24dp"
             android:fontFamily="@font/lalezar"
-            android:textColor="@color/text_color2"
-
             android:gravity="center_horizontal"
+
             android:text="@string/app_name"
             android:textAlignment="center"
+            android:textColor="@color/text_color2"
             android:textSize="40sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/imageView"
@@ -47,28 +47,30 @@
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
+            android:layout_width="179dp"
+            android:layout_height="66dp"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:fontFamily="@font/rakkas"
-            android:textColor="@color/text_color2"
             android:gravity="center"
-            android:text="وَأَمَّا بِنِعْمَةِ رَبِّكَ فَحَدِّثْ"
+            android:text="@string/textView2"
+            android:textColor="@color/text_color2"
             android:textSize="20sp"
             app:layout_constraintEnd_toStartOf="@+id/imageView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
+
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="0dp"
             android:layout_height="160dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
+            android:src="@mipmap/logo_foreground"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar"
-            android:src="@mipmap/logo_foreground" />
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="0dp"
@@ -79,17 +81,19 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView">
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/Qraan"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 android:layout_weight="1">
-                <RelativeLayout
-                    android:background="@color/card_background"
 
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+
+                    android:layout_height="match_parent"
+                    android:background="@color/card_background">
 
                     <TextView
                         android:id="@+id/textView3"
@@ -98,11 +102,12 @@
                         android:layout_below="@id/bus"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
-                        android:text="القران"
-                        android:textStyle="bold"
+                        android:text="@string/textView3"
                         android:textColor="@color/text_color"
                         android:textSize="24sp"
+                        android:textStyle="bold"
                         app:fontFamily="@font/aclonica" />
+
                     <ImageView
                         android:id="@+id/bus"
                         android:layout_width="75dp"
@@ -112,15 +117,18 @@
                         android:src="@drawable/quran" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/sebhaScreen"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 android:layout_weight="1">
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
+
                     <TextView
                         android:id="@+id/textView4"
                         android:layout_width="wrap_content"
@@ -128,11 +136,12 @@
                         android:layout_below="@id/imageView3"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
-                        android:text="مسبحة"
-                        android:textStyle="bold"
-
+                        android:text="@string/textView4"
                         android:textSize="24sp"
+
+                        android:textStyle="bold"
                         app:fontFamily="@font/aclonica" />
+
                     <ImageView
                         android:id="@+id/imageView3"
                         android:layout_width="75dp"
@@ -145,6 +154,7 @@
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/linearLayout2"
             android:layout_width="0dp"
@@ -155,15 +165,18 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/qiblahScreen"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 android:layout_weight="1">
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
+
                     <TextView
                         android:id="@+id/textView6"
                         android:layout_width="wrap_content"
@@ -171,28 +184,32 @@
                         android:layout_below="@id/bus1"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
-                        android:text="القبلة"
-                        android:textStyle="bold"
+                        android:text="@string/textView6"
                         android:textSize="24sp"
+                        android:textStyle="bold"
                         app:fontFamily="@font/aclonica" />
+
                     <ImageView
                         android:id="@+id/bus1"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                       android:src="@drawable/ic_mecca" />
+                        android:src="@drawable/ic_mecca" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/azkarPage"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 android:layout_weight="1">
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
+
                     <TextView
                         android:id="@+id/textView7"
                         android:layout_width="wrap_content"
@@ -200,10 +217,11 @@
                         android:layout_below="@id/train"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
-                        android:text="اذكار"
-                        android:textStyle="bold"
+                        android:text="@string/textView7"
                         android:textSize="24sp"
+                        android:textStyle="bold"
                         app:fontFamily="@font/aclonica" />
+
                     <ImageView
                         android:id="@+id/train"
                         android:layout_width="75dp"
@@ -214,6 +232,7 @@
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="175dp"
@@ -223,15 +242,18 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/islamicStories"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 android:layout_weight="1">
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
+
                     <TextView
                         android:id="@+id/textView8"
                         android:layout_width="wrap_content"
@@ -239,20 +261,22 @@
                         android:layout_below="@id/cycle"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
-                        android:text="قصص اسلامية"
+                        android:text="@string/textView8"
+                        android:textSize="16sp"
                         android:textStyle="bold"
-                        android:textSize="24sp"
                         app:fontFamily="@font/aclonica" />
+
                     <ImageView
                         android:id="@+id/cycle"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        android:textStyle="bold"
-                        android:src="@drawable/story" />
+                        android:src="@drawable/story"
+                        android:textStyle="bold" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/islamicNote"
 
@@ -260,9 +284,11 @@
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 android:layout_weight="1">
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
+
                     <TextView
                         android:id="@+id/textView9"
                         android:layout_width="wrap_content"
@@ -270,10 +296,11 @@
                         android:layout_below="@id/airplane"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
-                        android:text="النوتة التحميدية"
+                        android:text="@string/textView9"
+                        android:textSize="16sp"
                         android:textStyle="bold"
-                        android:textSize="24sp"
                         app:fontFamily="@font/aclonica" />
+
                     <ImageView
                         android:id="@+id/airplane"
                         android:layout_width="75dp"

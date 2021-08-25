@@ -20,10 +20,10 @@ import com.bfcai.islamy.R;
 import java.util.Locale;
 
 public class SplashActivity extends AppCompatActivity {
-    private static int SPLASH_TIMER = 5000;
+    private static int SPLASH_TIMER = 4000;
 
-    ImageView background;
-    TextView appName;
+    ImageView icon;
+    TextView appName,gate;
 
     Animation side,bottom;
     SharedPreferences sharedPreferences;
@@ -35,15 +35,17 @@ public class SplashActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 
-        background=findViewById(R.id.splash_screen_background_iv);
-        appName =findViewById(R.id.app_name);
+        icon=findViewById(R.id.imageView4);
+        appName =findViewById(R.id.textView11);
+        gate =findViewById(R.id.textView12);
 
         side = AnimationUtils.loadAnimation(this,R.anim.side_anim);
         bottom = AnimationUtils.loadAnimation(this,R.anim.bottom_anim);
 
         //set animation on elements
-        background.setAnimation(side);
+        icon.setAnimation(side);
         appName.setAnimation(bottom);
+        gate.setAnimation(bottom);
 
 
         new Handler().postDelayed(new Runnable() {

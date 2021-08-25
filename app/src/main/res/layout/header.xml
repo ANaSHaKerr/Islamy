@@ -12,6 +12,7 @@
 
 
     <TextView
+        android:id="@+id/tv1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/lalezar"
@@ -31,7 +32,7 @@
         android:layout_marginBottom="24dp"
 
         android:fontFamily="@font/rakkas"
-        android:text="وَأَمَّا بِنِعْمَةِ رَبِّكَ فَحَدِّثْ"
+        android:text="@string/textView5"
         android:textColor="@color/text_color2"
         android:textSize="23sp"
         app:layout_constraintBottom_toBottomOf="parent"

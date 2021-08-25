@@ -2,60 +2,67 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 <group android:checkableBehavior="single">
-    <item android:id="@+id/tasabyhPage"
+    <item
+        android:id="@+id/tasabyhPage"
         android:icon="@drawable/tasabeh"
-        android:title="تسابيح"
-        />
-    <item android:id="@+id/adayaPage"
+        android:title="@string/tasabyhPage" />
+    <item
+        android:id="@+id/adayaPage"
         android:icon="@drawable/doaa"
-        android:title="ادعية"/>
-    <item android:id="@+id/azkarElsabahPage"
+        android:title="@string/adayaPage" />
+    <item
+        android:id="@+id/azkarElsabahPage"
         android:icon="@drawable/azkar_elsabah"
-        android:title="اذكار الصباح"/>
-    <item android:id="@+id/azkarElmasaaPage"
+        android:title="@string/azkarElsabahPage" />
+    <item
+        android:id="@+id/azkarElmasaaPage"
         android:icon="@drawable/azkar_elmasaa"
-        android:title="اذكار المساء"/>
-    <item android:id="@+id/malomatPage"
+        android:title="@string/azkarElmasaaPage" />
+    <item
+        android:id="@+id/malomatPage"
         android:icon="@drawable/malomat"
-        android:title="معلومات دينية"/>
+        android:title="@string/malomatPage" />
 </group>
 
     <group android:checkableBehavior="single" >
 
-        <item android:title="الاعدادات">
+        <item
+            android:id="@+id/setting"
+            android:title="@string/setting">
             <menu>
                 <item
                     android:id="@+id/darkMode"
-                    android:title="الوضع الليلي"
                     android:icon="@drawable/ic_baseline_wb_sunny_24"
-                    app:actionLayout="@layout/theme_switch"
-                    />
-                <item android:id="@+id/translate"
-                    android:title="@string/changeLanguage"
+                    android:title="@string/darkMode"
+                    app:actionLayout="@layout/theme_switch" />
+                <item
+                    android:id="@+id/translate"
                     android:icon="@drawable/ic_baseline_g_translate_24"
-                    />
-                <item android:id="@+id/aboutApp"
-                    android:title="عن التطبيق"
+                    android:title="@string/changeLanguage" />
+                <item
+                    android:id="@+id/aboutApp"
                     android:icon="@drawable/ic_baseline_info_24"
-                    />
+                    android:title="@string/aboutApp" />
 
             </menu>
         </item>
     </group>
 
-    <item android:title="شارك">
+    <item
+        android:id="@+id/share"
+        android:title="@string/share">
 
         <menu>
 
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_baseline_share_24"
-                android:title="مشاركة" />
+                android:title="@string/nav_share" />
 
             <item
                 android:id="@+id/nav_rate"
                 android:icon="@drawable/ic_baseline_rate_review_24"
-                android:title="تقييم التطبيق" />
+                android:title="@string/nav_rate" />
         </menu>
     </item>
 

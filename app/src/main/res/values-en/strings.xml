@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">islamy</string>
+    <string name="app_name">Islamy</string>
     <string name="changeLanguage">Change Language</string>
-    <string name="navigation_drawer_open" translatable="false">فتح</string>
-    <string name="navigation_drawer_close" translatable="false">اغلاق</string>
+    <string name="textView3">Quran</string>
+    <string name="textView4">Tasbeeh</string>
+    <string name="textView">Islamy</string>
+    <string name="textView2">And proclaim the Grace of your Lord</string>
+    <string name="textView6">Qiblah</string>
+    <string name="textView7">Azkar</string>
+    <string name="textView8">Islamic stories</string>
+    <string name="textView9">Indicative note</string>
+    <string name="tv1">Islamy</string>
+    <string name="textView5">And proclaim the Grace of your Lord</string>
+    <string name="tasabyhPage">Tasabeeh</string>
+    <string name="azkarElsabahPage">Morning prayers</string>
+    <string name="adayaPage">prayers</string>
+    <string name="azkarElmasaaPage">Evenning prayers</string>
+    <string name="malomatPage">Religious Information</string>
+    <string name="setting">Setting</string>
+    <string name="darkMode">Dark Mode</string>
+    <string name="aboutApp">About App</string>
+    <string name="share">Share</string>
+    <string name="nav_share">Share App</string>
+    <string name="nav_rate">Rate Our App</string>
 </resources>

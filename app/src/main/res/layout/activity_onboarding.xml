@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/splashphoto2"
     android:padding="20dp"
     tools:context=".Screens.WelcomeScreen.OnboardingActivity">
 
@@ -23,17 +24,16 @@
         android:id="@+id/onboarding_skip_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Skip"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:padding="10dp"
-        android:onClick="skip"
         android:background="#00000000"
         android:drawableEnd="@drawable/ic_double_check"
         android:drawableRight="@drawable/ic_double_check"
+        android:onClick="skip"
+        android:padding="10dp"
+        android:text="Skip"
         android:textColor="@color/yellow"
         android:textStyle="bold"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:background="#FFC700"
             android:text="Lets Get Started"
-            android:visibility="invisible"/>
+            android:visibility="invisible" />
 
         <LinearLayout
             android:id="@+id/dots"
@@ -68,9 +68,9 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
             android:background="#00000000"
-            android:onClick="next"
             android:drawableEnd="@drawable/ic_next"
             android:drawableRight="@drawable/ic_next"
+            android:onClick="next"
             android:paddingEnd="8dp"
             android:paddingRight="8dp"
             android:paddingBottom="30dp" />
