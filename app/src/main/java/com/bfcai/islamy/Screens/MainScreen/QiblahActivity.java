@@ -28,7 +28,7 @@ public class QiblahActivity extends AppCompatActivity implements SensorEventList
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        overridePendingTransition(R.anim.slide_up, R.anim.no_change);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qiblah);
@@ -69,7 +69,7 @@ public class QiblahActivity extends AppCompatActivity implements SensorEventList
         super.onBackPressed();
         Intent intent=new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
-        overridePendingTransition(R.anim.no_change, R.anim.slide_down);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
         finish();
     }
 }

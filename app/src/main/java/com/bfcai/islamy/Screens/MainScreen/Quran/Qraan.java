@@ -84,7 +84,7 @@ public class Qraan extends AppCompatActivity {
                 intent.putExtra("num",i);
 
                 startActivity(intent);
-                overridePendingTransition(R.anim.slide_up, R.anim.no_change);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
 
             }
@@ -96,7 +96,7 @@ public class Qraan extends AppCompatActivity {
     public void onBackPressed(){
         Intent intent=new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
-        overridePendingTransition(R.anim.no_change,R.anim.slide_down);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
 
 
     }

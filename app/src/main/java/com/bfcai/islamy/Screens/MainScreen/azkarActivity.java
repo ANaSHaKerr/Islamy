@@ -46,7 +46,7 @@ public class azkarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_azkar);
         toolbar = findViewById(R.id.azkarToolbar);
         setSupportActionBar(toolbar);
-        overridePendingTransition(R.anim.slide_up, R.anim.no_change);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         progressBar = findViewById(R.id.azkarProgress);
 
         recyclerView = findViewById(R.id.azkarList);
@@ -99,7 +99,7 @@ public class azkarActivity extends AppCompatActivity {
         super.onBackPressed();
         Intent intent=new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
-        overridePendingTransition(R.anim.no_change, R.anim.slide_down);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
         finish();
     }
 }

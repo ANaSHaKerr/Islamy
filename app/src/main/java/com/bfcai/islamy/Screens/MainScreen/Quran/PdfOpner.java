@@ -396,6 +396,6 @@ public class PdfOpner extends AppCompatActivity {
     public void onBackPressed() {
         Intent intent=new Intent(getApplicationContext(), Qraan.class);
         startActivity(intent);
-        overridePendingTransition(R.anim.no_change, R.anim.slide_down);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 }
