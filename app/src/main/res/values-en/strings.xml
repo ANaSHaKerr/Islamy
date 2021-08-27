@@ -164,4 +164,9 @@
     <string name="noteTitle">Note</string>
     <string name="mainDes">And for the blessing of god speak</string>
 
+    <!-- Strings used for Sebha Screen -->
+    <string name="sebha_add_btn">Click Here</string>
+    <string name="sebha_reset_btn">Reset</string>
+    <string name="sebha_tollBar">Glory and Praise be to Allah</string>
+
 </resources>

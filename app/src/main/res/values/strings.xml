@@ -173,4 +173,10 @@
     <string name="note_swipe_right">حذف</string>
     <string name="note_swipe_left">تعديل</string>
 
+    <!-- Strings used for Sebha Screen -->
+    <string name="sebha_add_btn">أضغط هنا</string>
+    <string name="sebha_reset_btn">إعادة</string>
+    <string name="sebha_tollBar">﴿سَبِّحِ اسْمَ رَبِّكَ الْأَعْلَىْ﴾</string>
+
+
 </resources>
