@@ -78,7 +78,7 @@ public class TasabyhActivity extends AppCompatActivity {
                 }
 
                 recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-                adapter = new MuslimDoaaAdapter(getApplicationContext(),doaas);
+                adapter = new MuslimDoaaAdapter(getApplicationContext(),doaas,getBaseContext());
                 recyclerView.setAdapter(adapter);
             }
         }, new Response.ErrorListener() {

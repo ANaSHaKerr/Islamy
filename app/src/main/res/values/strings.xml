@@ -172,5 +172,8 @@
     <string name="note_undo">الغاء</string>
     <string name="note_swipe_right">حذف</string>
     <string name="note_swipe_left">تعديل</string>
+    <string name="enter_title_of_post">ادخل عنوان القصه</string>
+    <string name="enter_description_of_post">ادخل وصف القصة</string>
+    <string name="add_post">اضف القصة</string>
 
 </resources>

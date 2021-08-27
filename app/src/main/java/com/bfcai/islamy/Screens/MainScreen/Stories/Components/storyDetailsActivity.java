@@ -26,11 +26,10 @@ public class storyDetailsActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_story_details);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.storyToolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         data = getIntent();
-        TextView title = findViewById(R.id.noteDetailsTitle);
+        TextView title = findViewById(R.id.noteTitleContent);
         TextView content = findViewById(R.id.noteDetailsContent);
         ImageView imageView = findViewById(R.id.imagePost);
         content.setText(data.getStringExtra("des"));

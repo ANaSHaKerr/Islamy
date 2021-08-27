@@ -163,5 +163,8 @@
     <string name="stories">Stories</string>
     <string name="noteTitle">Note</string>
     <string name="mainDes">And for the blessing of god speak</string>
+    <string name="enter_title_of_post">Enter title of post</string>
+    <string name="enter_description_of_post">Enter Description of post</string>
+    <string name="add_post">Add Post</string>
 
 </resources>
