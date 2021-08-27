@@ -25,7 +25,7 @@ public class UpdateNotesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        overridePendingTransition(R.anim.slide_up, R.anim.no_change);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_notes);
@@ -53,7 +53,7 @@ public class UpdateNotesActivity extends AppCompatActivity {
                     Intent i =new Intent(UpdateNotesActivity.this, NoteHomeActivity.class);
                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(i);
-                    overridePendingTransition(R.anim.slide_up,R.anim.no_change);
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                     finish();
                 }
                 else //is empty
@@ -69,7 +69,7 @@ public class UpdateNotesActivity extends AppCompatActivity {
         super.onBackPressed();
         Intent intent=new Intent(getApplicationContext(), NoteHomeActivity.class);
         startActivity(intent);
-        overridePendingTransition(R.anim.no_change, R.anim.slide_down);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
         finish();
     }
 }

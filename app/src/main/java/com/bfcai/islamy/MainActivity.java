@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Intent intent=new Intent(this, Qraan.class);
             startActivity(intent);
             finish();
-            overridePendingTransition(R.anim.slide_up,R.anim.no_change);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
         });
         islamicStories.setOnClickListener(v -> {

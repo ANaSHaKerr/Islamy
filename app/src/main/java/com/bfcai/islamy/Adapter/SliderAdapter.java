@@ -21,21 +21,21 @@ public class SliderAdapter extends PagerAdapter {
     }
 
     public int[] slideImages = {
-            R.drawable.ic_contract,
-            R.drawable.ic_pray,
-            R.drawable.ic_quran,
+            R.drawable.onboarding1,
+            R.drawable.onboarding2,
+            R.drawable.onboarding3,
     };
 
     public String[] slideHeadings ={
-            "Note",
-            "Graces",
-            "Quran"
+            "Quran",
+            "Prayers",
+            "Other Features"
     };
 
     public String[] slideDescriptions ={
-            "Welcome to your diary",
-            "Write your daily memoirs before going to sleep about the Graces you thank your Lord for,as He said in His Noble Quran",
-            "(Al-Duha) -11- And proclaim the Grace of your Lord",
+            "You can access all Verses of the Qur'an as PDF formula",
+            "Find all prayers you need (Morning prayers,Evening prayers,...etc)",
+            "Also you can find another features such Al-Qiblah,Notes,Tasbeeh,Islamic stories,Religious Information",
     };
 
 

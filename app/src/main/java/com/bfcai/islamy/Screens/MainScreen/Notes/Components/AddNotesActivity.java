@@ -25,7 +25,7 @@ public class AddNotesActivity extends AppCompatActivity {
     NoteDatabase db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        overridePendingTransition(R.anim.slide_up, R.anim.no_change);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_notes);
@@ -47,7 +47,7 @@ public class AddNotesActivity extends AppCompatActivity {
                     Intent intent = new Intent(AddNotesActivity.this, NoteHomeActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
-                    overridePendingTransition(R.anim.slide_up,R.anim.no_change);
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                     finish();
                 }
                 else // false

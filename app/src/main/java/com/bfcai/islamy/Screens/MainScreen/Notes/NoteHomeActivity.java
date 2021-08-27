@@ -59,7 +59,7 @@ public class NoteHomeActivity extends AppCompatActivity {
         fab.setOnClickListener(v-> {
                 Intent intent=new Intent(NoteHomeActivity.this, AddNotesActivity.class);
                 startActivity(intent);
-            overridePendingTransition(R.anim.slide_up,R.anim.no_change);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
         });
 
@@ -231,7 +231,7 @@ public class NoteHomeActivity extends AppCompatActivity {
     public void onBackPressed(){
 
         startActivity(new Intent(getBaseContext(), MainActivity.class));
-        overridePendingTransition(R.anim.no_change, R.anim.slide_down);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
 

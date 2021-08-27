@@ -50,7 +50,7 @@ public class addPostActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        overridePendingTransition(R.anim.slide_up, R.anim.no_change);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_post);
@@ -107,7 +107,7 @@ public class addPostActivity extends AppCompatActivity {
                                         public void onComplete(@NonNull Task<DocumentReference> task) {
                                             if(task.isSuccessful()){
                                                 startActivity(new Intent(getBaseContext(), MainActivity.class));
-                                                overridePendingTransition(R.anim.slide_up,R.anim.no_change);
+                                                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                                                 finish();
                                             }else {
                                                 progressBar.setVisibility(View.INVISIBLE);
@@ -149,7 +149,7 @@ public class addPostActivity extends AppCompatActivity {
     public boolean onKeyDown(int keyCode, KeyEvent event)  {
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
            startActivity(new Intent(getBaseContext(),MainActivity.class));
-            overridePendingTransition(R.anim.slide_up,R.anim.no_change);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
            finish();
             return true;
         }

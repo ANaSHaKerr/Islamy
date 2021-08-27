@@ -46,12 +46,12 @@ public class OnboardingActivity extends AppCompatActivity {
         viewPager.addOnPageChangeListener(pageChangeListener);
         start.setOnClickListener(v -> {
             startActivity(new Intent(getBaseContext(),MainActivity.class));
-            overridePendingTransition(R.anim.slide_up,R.anim.no_change);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         });
     }
     public void skip(View view){
         startActivity(new Intent( this, MainActivity.class));
-        overridePendingTransition(R.anim.slide_up,R.anim.no_change);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         finish();
 
     }

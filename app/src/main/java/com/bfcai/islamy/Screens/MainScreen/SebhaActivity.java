@@ -20,22 +20,20 @@ import java.util.Arrays;
 public class SebhaActivity extends AppCompatActivity {
     private long initialValue = 0;
     TextView textView;
-    Button add,minus,reset;
+    Button add,reset;
     Handler handler = new Handler();
     Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        overridePendingTransition(R.anim.slide_up, R.anim.no_change);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sebha);
         toolbar = findViewById(R.id.sebhaToolbar);
 
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("مسبحة");
 
-        textView = findViewById(R.id.textView);
-        minus = findViewById(R.id.minus);
+        textView = findViewById(R.id.sebha_counter);
         reset = findViewById(R.id.reset);
 
         add = findViewById(R.id.add);
@@ -43,9 +41,6 @@ public class SebhaActivity extends AppCompatActivity {
         add.setOnClickListener(v->{
             addCounter.run();
             mediaPlayer.start();
-        });
-        minus.setOnClickListener( v->{
-            minusCounter.run();
         });
         reset.setOnClickListener(v -> {
             initialValue = 0;
@@ -57,7 +52,7 @@ public class SebhaActivity extends AppCompatActivity {
         super.onBackPressed();
         Intent intent=new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
-        overridePendingTransition(R.anim.no_change, R.anim.slide_down);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
         finish();
     }
 
@@ -65,12 +60,6 @@ public class SebhaActivity extends AppCompatActivity {
         @Override
         public void run(){
             textView.setText(String.valueOf(++initialValue));
-        }
-    };
-    Runnable minusCounter =  new Runnable(){
-        @Override
-        public void run(){
-            textView.setText(String.valueOf(--initialValue));
         }
     };
 

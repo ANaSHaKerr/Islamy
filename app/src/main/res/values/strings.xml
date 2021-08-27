@@ -176,4 +176,10 @@
     <string name="enter_description_of_post">ادخل وصف القصة</string>
     <string name="add_post">اضف القصة</string>
 
+    <!-- Strings used for Sebha Screen -->
+    <string name="sebha_add_btn">أضغط هنا</string>
+    <string name="sebha_reset_btn">إعادة</string>
+    <string name="sebha_tollBar">﴿سَبِّحِ اسْمَ رَبِّكَ الْأَعْلَىْ﴾</string>
+
+
 </resources>

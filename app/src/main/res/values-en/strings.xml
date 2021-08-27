@@ -167,4 +167,9 @@
     <string name="enter_description_of_post">Enter Description of post</string>
     <string name="add_post">Add Post</string>
 
+    <!-- Strings used for Sebha Screen -->
+    <string name="sebha_add_btn">Click Here</string>
+    <string name="sebha_reset_btn">Reset</string>
+    <string name="sebha_tollBar">Glory and Praise be to Allah</string>
+
 </resources>
