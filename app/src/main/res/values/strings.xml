@@ -151,10 +151,10 @@
     <string name="shareApp">مشاركة</string>
     <string name="rateApp">تقييم التطبيق</string>
     <string name="sebhaTitle">سبحة</string>
-    <string name="qiblahTitle">القبلة</string>
+    <string name="qiblahTitle">القبله</string>
     <string name="azkarTitle">اذكار</string>
     <string name="stories">قصص اسلامية</string>
-    <string name="noteTitle">المذكرة</string>
+    <string name="noteTitle">النوتة التحميدية</string>
     <string name="mainDes">وَأَمَّا بِنِعْمَةِ رَبِّكَ فَحَدِّثْ</string>
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
