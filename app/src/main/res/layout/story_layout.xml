@@ -86,8 +86,6 @@
                 android:layout_marginEnd="88dp"
                 android:layout_marginRight="88dp"
                 android:layout_marginBottom="4dp"
-                android:background="@color/text_color"
-                android:backgroundTint="@color/text_color"
                 android:src="@drawable/ic_baseline_favorite_border_24"
                 app:layout_constraintBottom_toTopOf="@+id/user_post"
                 app:layout_constraintEnd_toEndOf="parent" />

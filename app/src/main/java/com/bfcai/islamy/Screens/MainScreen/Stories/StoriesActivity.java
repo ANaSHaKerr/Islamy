@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ProgressBar;
 
 import com.bfcai.islamy.Adapter.StoryAdapter;
 import com.bfcai.islamy.MainActivity;
@@ -39,6 +40,7 @@ public class StoriesActivity extends AppCompatActivity {
     List<Story> storyList;
     Query query;
     ListenerRegistration listenerRegistration;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +53,7 @@ public class StoriesActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.main_toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("قصص اسلامية");
+        progressBar = findViewById(R.id.storyProgress);
 
         recyclerView = findViewById(R.id.storyRecycle);
         recyclerView.setHasFixedSize(true);
@@ -82,6 +85,7 @@ public class StoriesActivity extends AppCompatActivity {
 
                         Story story = doc.getDocument().toObject(Story.class).withId(storyId);
                         storyList.add(story);
+                        progressBar.setVisibility(View.INVISIBLE);
                         adapter.notifyDataSetChanged();
                     } else {
                         adapter.notifyDataSetChanged();

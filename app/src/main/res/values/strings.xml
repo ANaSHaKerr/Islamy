@@ -12,7 +12,8 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
     <string name="searchSurah">ابحث عن سوره</string>
     <string name="closeProject">اغلاق التطبيق</string>
@@ -156,8 +157,7 @@
     <string name="stories">قصص اسلامية</string>
     <string name="noteTitle">النوتة التحميدية</string>
     <string name="mainDes">وَأَمَّا بِنِعْمَةِ رَبِّكَ فَحَدِّثْ</string>
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
 
     <!-- Strings used for Note Screen -->
     <string name="note_title">النِعَم</string>
@@ -180,6 +180,7 @@
     <string name="sebha_add_btn">أضغط هنا</string>
     <string name="sebha_reset_btn">إعادة</string>
     <string name="sebha_tollBar">﴿سَبِّحِ اسْمَ رَبِّكَ الْأَعْلَىْ﴾</string>
+    <string name="qiblahDes">حرك هاتفك الي ان تصبح الكعبة بالمنتصف</string>
 
 
 </resources>
