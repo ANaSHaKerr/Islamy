@@ -19,5 +19,6 @@
     <color name="text_color2">#212121</color>
     <color name="text_color3">#FFFFFFFF</color>
     <color name="yellow">#FFC700</color>
+    <color name="background1">#FFFFFFFF</color>
 
 </resources>

@@ -45,12 +45,13 @@
         android:layout_margin="8dp"
         android:background="@drawable/edit_text_style"
         android:id="@+id/searchFilter"/>
+
     <ListView
         android:id="@+id/surah_name"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:divider="@color/background"
+        android:divider="@color/text_color"
         android:dividerHeight="1px"
-        android:padding="5dp"/>
+        android:padding="5dp" />
 
 </LinearLayout>

@@ -10,22 +10,22 @@
         android:id="@+id/tasabyhToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/app_Color"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-
+        android:background="#225C56"
         android:elevation="8dp"
-        >
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textAlignment="center"
             android:foregroundGravity="center"
-            android:textSize="26sp"
+            android:gravity="center"
+            android:text="@string/tasabyh"
+            android:textAlignment="center"
             android:textColor="@color/white"
-            android:textStyle="bold"
-            android:text="@string/tasabyh"/>
+            android:textSize="26sp"
+            android:textStyle="bold" />
     </androidx.appcompat.widget.Toolbar>
     <ProgressBar
         android:id="@+id/tasabyhProgress"
@@ -42,6 +42,7 @@
         android:id="@+id/tasabyhList"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="@color/bakground_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -12,12 +12,13 @@
 
     <color name="orange">#F67D48</color>
     <color name="dark_blue">#152C4E</color>
-    <color name="bakground_color">#212121</color>
+    <color name="bakground_color">#225C56</color>
     <color name="card_background">#808080</color>
     <color name="text_color">#FFFFFFFF</color>
     <color name="text_color2">#808080</color>
     <color name="text_color3">#225C56</color>
     <color name="yellow">#FFC700</color>
     <color name="background">#225C56</color>
+    <color name="background1">#212121</color>
 
 </resources>
