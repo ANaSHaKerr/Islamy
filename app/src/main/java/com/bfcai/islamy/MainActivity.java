@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     FirebaseAuth auth;
     LinearLayout islamicStories,islamicNote,azkarPage,qraan,qiblahScreen,sebhaScreen;
     NavigationView navigationView ;
+    ImageView imageView;
 
     //اسلامي
 
@@ -75,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (loadMode()){
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+
             setTheme(R.style.darkTheme);
         } else {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
@@ -99,6 +101,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         qraan=findViewById(R.id.Qraan);
         qiblahScreen = findViewById(R.id.qiblahScreen);
         sebhaScreen = findViewById(R.id.sebhaScreen);
+        imageView=findViewById(R.id.imageView);
 
         // اكواد تعريف القائمه الجانبيه و العناصر بداخلها
         navigationView.bringToFront();
@@ -222,9 +225,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .setCustomTitle(title)
                     .setMessage(R.string.closeDialogDes)
-                    .setPositiveButton(R.string.yes, (dialog, which) -> finish())
-                    .setNegativeButton(R.string.No, null)
-                    .show();
+                    .setPositiveButton(R.string.yes, (dialog, which) ->{
+                            finishAffinity();
+                    System.exit(0);
+                    }).setNegativeButton("لا",null).show();
+
+
         }
     }
     int selectedItems;
@@ -301,10 +307,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+
                     saveMode(true);
                     recreate();
                 } else {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
                     saveMode(false);
                 }
             }

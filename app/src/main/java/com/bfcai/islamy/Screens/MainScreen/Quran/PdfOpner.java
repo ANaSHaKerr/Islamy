@@ -42,7 +42,11 @@ public class PdfOpner extends AppCompatActivity {
         */
         if(num <10){
             mypdfviewer.fromAsset("00"+ num +".pdf").load();
-        } else if (num > 10 && num< 100){
+        }
+        else if(item.equals("يونس")){
+            mypdfviewer.fromAsset("010.pdf").load();
+        }
+        else if (num > 10 && num< 100){
             mypdfviewer.fromAsset("0"+ num +".pdf").load();
         } else {
             mypdfviewer.fromAsset( num +".pdf").load();

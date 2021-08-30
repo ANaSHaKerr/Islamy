@@ -4,22 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     android:orientation="vertical"
-    android:background="@color/bakground_color"
     tools:context=".Screens.MainScreen.SebhaActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/sebhaToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/purple_500"
+        android:background="@color/text_color3"
         android:padding="10dp"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
 
-        app:title="@string/sebha_tollBar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        />
+        app:title="@string/sebha_tollBar"
+        app:titleTextColor="@color/text_color" />
 
     <Button
         android:id="@+id/add"
@@ -29,8 +29,10 @@
         android:background="@drawable/sebha_btn"
         android:fontFamily="@font/lalezar"
         android:text="@string/sebha_add_btn"
-        android:textSize="36sp"
+        android:textColor="@color/background"
 
+        android:textSize="36sp"
+        app:backgroundTint="@color/text_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,10 +44,10 @@
         android:layout_height="70dp"
         android:layout_marginTop="48dp"
         android:layout_weight="3"
-        android:background="@drawable/sebha_text_layout"
+        android:background="@color/text_color"
         android:gravity="center"
         android:text="0"
-        android:textColor="@color/white"
+        android:textColor="@color/text_color3"
         android:textSize="35sp"
 
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,9 +64,10 @@
         android:background="@drawable/sebha_btn"
         android:fontFamily="@font/lalezar"
         android:text="@string/sebha_reset_btn"
+        android:textColor="@color/text_color3"
         android:textSize="29sp"
-        android:textColor="@color/white"
 
+        app:backgroundTint="@color/text_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
@@ -80,10 +83,10 @@
         android:background="@drawable/background_effect"
         android:src="@drawable/background_effect"
 
-        app:layout_constraintTop_toTopOf="@id/sebhaToolbar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/sebhaToolbar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

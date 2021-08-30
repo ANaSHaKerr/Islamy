@@ -40,7 +40,7 @@
             android:layout_alignParentEnd="true"
             android:tintMode="src_in"
             android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="4dp"
             tipbook:tint="@color/background" />
         <ImageView
