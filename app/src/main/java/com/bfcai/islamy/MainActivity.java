@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // اكواد تعريف القائمه الجانبيه و العناصر بداخلها
         navigationView.bringToFront();
         ActionBarDrawerToggle toggle=new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.navigation_drawer_open,R.string.navigation_drawer_close);
-        toggle.getDrawerArrowDrawable().setColor( getResources().getColor(R.color.background));
+        toggle.getDrawerArrowDrawable().setColor( getResources().getColor(R.color.black));
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
