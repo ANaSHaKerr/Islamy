@@ -11,6 +11,8 @@
         android:label="إسلامي"
         android:roundIcon="@mipmap/logo"
         android:supportsRtl="true"
+        android:largeHeap="true"
+        android:hardwareAccelerated="false"
         android:theme="@style/Theme.Islamy">
         <activity android:name=".Screens.MainScreen.SebhaActivity"></activity>
         <activity android:name=".Screens.MainScreen.QiblahActivity" />
