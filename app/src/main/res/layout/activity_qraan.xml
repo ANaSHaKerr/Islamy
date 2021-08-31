@@ -52,6 +52,7 @@
         android:layout_height="match_parent"
         android:divider="@color/text_color"
         android:dividerHeight="1px"
+        android:fillViewport="true"
         android:padding="5dp" />
 
 </LinearLayout>

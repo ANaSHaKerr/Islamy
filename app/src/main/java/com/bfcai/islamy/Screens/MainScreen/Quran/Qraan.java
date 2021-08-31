@@ -25,6 +25,8 @@ import android.widget.TextView;
 import com.bfcai.islamy.MainActivity;
 import com.bfcai.islamy.R;
 
+import java.util.HashMap;
+
 public class Qraan extends AppCompatActivity {
     ListView pdflistview;
     Toolbar toolbar;
@@ -59,7 +61,24 @@ public class Qraan extends AppCompatActivity {
                 ,getString(R.string.qraan102),getString(R.string.qraan103),getString(R.string.qraan104),getString(R.string.qraan105),getString(R.string.qraan106),getString(R.string.qraan107),getString(R.string.qraan108)
                 ,getString(R.string.qraan109),getString(R.string.qraan110),getString(R.string.qraan111),getString(R.string.qraan112),getString(R.string.qraan113),getString(R.string.qraan114)};
 
+        // ده ميثود بنستخدمها عشان نشوف لو فيه تغيير في التيكست
+        theFilter.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                (Qraan.this).adapter.getFilter().filter(charSequence);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+        HashMap<String, String> addressMap = new HashMap<String, String>();
         adapter = new ArrayAdapter(this, R.layout.quran_listitem_layout, pdfFilenames);
         pdflistview.setAdapter(adapter);
         Animation translate_anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.translate_anim);
@@ -70,7 +89,7 @@ public class Qraan extends AppCompatActivity {
                 String item=pdflistview.getItemAtPosition(i).toString();
                 Intent intent=new Intent(getApplicationContext(),PdfOpner.class);
                 intent.putExtra("item",item);
-                intent.putExtra("num",i);
+                intent.putExtra("num",addressMap.get(item));
 
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
@@ -89,4 +108,5 @@ public class Qraan extends AppCompatActivity {
 
 
     }
+
 }

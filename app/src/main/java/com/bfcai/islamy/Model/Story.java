@@ -1,6 +1,9 @@
 package com.bfcai.islamy.Model;
 
+import androidx.annotation.Keep;
+
 import java.util.Date;
+@Keep
 
 public class Story extends  StoryId{
     String title;
