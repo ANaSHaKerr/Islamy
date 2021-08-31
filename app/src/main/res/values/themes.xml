@@ -16,7 +16,7 @@
     </style>
 
 
-    <style name="MyActionBarTheme" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+    <style name="MyActionBarTheme" parent="ThemeOverlay.AppCompat.Light">
         <item name="android:textColorPrimary">#FFFFFF</item>
         <item name="android:textColor">@color/purple_500</item>
     </style>
