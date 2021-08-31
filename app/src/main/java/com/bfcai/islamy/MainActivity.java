@@ -228,7 +228,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     .setPositiveButton(R.string.yes, (dialog, which) ->{
                             finishAffinity();
                     System.exit(0);
-                    }).setNegativeButton("لا",null).show();
+                    }).setNegativeButton(R.string.No,null).show();
 
 
         }
