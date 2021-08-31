@@ -7,14 +7,15 @@
 
     <application
         android:allowBackup="true"
+        android:hardwareAccelerated="false"
         android:icon="@mipmap/logo"
         android:label="إسلامي"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/logo"
         android:supportsRtl="true"
-        android:largeHeap="true"
-        android:hardwareAccelerated="false"
         android:theme="@style/Theme.Islamy">
-        <activity android:name=".Screens.MainScreen.SebhaActivity"></activity>
+        <activity android:name=".Screens.MainScreen.Stories.Components.EditStoryActivity"></activity>
+        <activity android:name=".Screens.MainScreen.SebhaActivity" />
         <activity android:name=".Screens.MainScreen.QiblahActivity" />
         <activity android:name=".Screens.MainScreen.Quran.PdfOpner" />
         <activity android:name=".Screens.MainScreen.Quran.Qraan" />

@@ -41,12 +41,12 @@ public class storyDetailsActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-        /*        Intent i = new Intent(getBaseContext(),EditNote.class);
+                Intent i = new Intent(getBaseContext(), EditStoryActivity.class);
                 i.putExtra("title",data.getStringExtra("title"));
-                i.putExtra("content",data.getStringExtra("content"));
-                i.putExtra("noteId",data.getStringExtra("noteId"));
-                startActivity(i);*/
-
+                i.putExtra("content",data.getStringExtra("des"));
+                i.putExtra("image",data.getStringExtra("image"));
+                i.putExtra("id",data.getStringExtra("id"));
+                startActivity(i);
 
             }
         });

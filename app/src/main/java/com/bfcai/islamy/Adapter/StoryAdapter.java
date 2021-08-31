@@ -1,6 +1,7 @@
 package com.bfcai.islamy.Adapter;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.text.format.DateFormat;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bfcai.islamy.Model.Story;
@@ -27,6 +29,7 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.Date;
@@ -71,6 +74,7 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.storyViewHol
             i.putExtra("des",  story.getDes());
             i.putExtra("image",  story.getImage());
             i.putExtra("date",  story.getDate());
+            i.putExtra("id", story.storyId);
             v.getContext().startActivity(i);
 
 
@@ -122,6 +126,35 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.storyViewHol
             });
         });
 
+            holder.deleteBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    AlertDialog.Builder alert = new AlertDialog.Builder(context,R.style.AlertDialogCustom);
+                    alert.setTitle("Delete")
+                            .setMessage("Are You Sure ?")
+                            .setNegativeButton("No" , null)
+                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+
+
+                                    firestore.collection("Stories/" + storyId + "/Likes").get()
+                                            .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                                    for (QueryDocumentSnapshot snapshot : task.getResult()){
+                                                        firestore.collection("Stories/" + storyId + "/Likes").document().delete();
+                                                    }
+                                                }
+                                            });
+                                    firestore.collection("Stories").document(storyId).delete();
+                                    storyList.remove(position);
+                                    notifyDataSetChanged();
+                                }
+                            });
+                    alert.show();
+                }
+            });
 
     }
 
@@ -131,13 +164,14 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.storyViewHol
     }
 
     public class storyViewHolder extends RecyclerView.ViewHolder {
-        ImageView imageView , likePic;
+        ImageView imageView , likePic,deleteBtn;
         TextView title,des,Pdate,likeCount;
         View view;
         public storyViewHolder(@NonNull View itemView) {
             super(itemView);
             view = itemView;
             likePic = view.findViewById(R.id.like_btn);
+            deleteBtn= view.findViewById(R.id.delete_btn);
         }
 
         public void setLikeCount(int count) {
@@ -151,7 +185,7 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.storyViewHol
         }
         public void setPostTitle(String titlePost){
             title = view.findViewById(R.id.caption_tv);
-            title.setText(titlePost.length() > 10 ? titlePost.substring(0,10)+"..." : titlePost);
+            title.setText(titlePost);
         }
         public void setPostDes(String desPost){
             des = view.findViewById(R.id.des_tv);

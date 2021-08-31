@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bakground_color"
-    tools:context=".Screens.MainScreen.Stories.Components.addPostActivity">
+    tools:context=".Screens.MainScreen.Stories.Components.EditStoryActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/addPost_toolbar"
+        android:id="@+id/editPost_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/app_Color"
@@ -21,16 +21,16 @@
         android:layout_height="250dp"
         android:src="@drawable/ic_baseline_add_24"
         android:scaleType="centerCrop"
-        android:id="@+id/addPostImage"
+        android:id="@+id/editPostImage"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addPost_toolbar"
+        app:layout_constraintTop_toBottomOf="@+id/editPost_toolbar"
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/addPostText"
+        android:id="@+id/EditNoteTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/enter_title_of_post"
@@ -44,10 +44,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addPostImage"
+        app:layout_constraintTop_toBottomOf="@+id/editPostImage"
         app:layout_constraintVertical_bias="0.268" />
     <EditText
-        android:id="@+id/addPostDes"
+        android:id="@+id/EditNoteDes"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/enter_description_of_post"
@@ -61,10 +61,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addPostText"
+        app:layout_constraintTop_toBottomOf="@+id/EditNoteTitle"
         app:layout_constraintVertical_bias="0.268" />
     <Button
-        android:id="@+id/addPostBtn"
+        android:id="@+id/editPostBtn"
         android:layout_width="302dp"
         android:layout_height="48dp"
         android:text="@string/add_post"
@@ -74,11 +74,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addPostDes"
+        app:layout_constraintTop_toBottomOf="@+id/EditNoteDes"
         app:layout_constraintVertical_bias="0.313" />
 
     <ProgressBar
-        android:id="@+id/addProgressBar"
+        android:id="@+id/editProgressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="invisible"
