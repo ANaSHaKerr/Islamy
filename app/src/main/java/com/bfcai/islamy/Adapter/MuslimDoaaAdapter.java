@@ -8,6 +8,8 @@ import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -15,6 +17,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bfcai.islamy.Model.MuslimDoaa;
@@ -89,7 +92,8 @@ public class MuslimDoaaAdapter extends RecyclerView.Adapter<MuslimDoaaAdapter.Vi
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView doaaTitle,doaaSubtitle,doaaNum;
-        ImageView shareContent, copyContent,listenContent;;
+        ImageView shareContent, copyContent;
+        CardView cardView;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             doaaTitle=itemView.findViewById(R.id.doaaTitle);
@@ -97,7 +101,10 @@ public class MuslimDoaaAdapter extends RecyclerView.Adapter<MuslimDoaaAdapter.Vi
             doaaNum=itemView.findViewById(R.id.doaaNum);
             shareContent= itemView.findViewById(R.id.shareContent);
             copyContent= itemView.findViewById(R.id.copyContent);
-            //listenContent=itemView.findViewById(R.id.listenContent);
+            cardView = itemView.findViewById(R.id.week_card_view);
+            //Animate Recyclerview
+            Animation translate_anim = AnimationUtils.loadAnimation(context, R.anim.translate_anim);
+            cardView.setAnimation(translate_anim);
 
         }
     }

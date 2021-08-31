@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:tipbook="http://schemas.android.com/apk/res-auto"
     android:id="@+id/week_card_view"
+    android:elevation="10dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginLeft="8dp"

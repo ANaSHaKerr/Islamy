@@ -6,8 +6,11 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -118,11 +121,16 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.MyViewHolder>i
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView title,description;
         RelativeLayout layout;
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.rv_tv_title);
             description = itemView.findViewById(R.id.rv_tv_description);
             layout = itemView.findViewById(R.id.rv_relative_layout);
+
+            //Animate Recyclerview
+            Animation translate_anim = AnimationUtils.loadAnimation(context, R.anim.translate_anim);
+            layout.setAnimation(translate_anim);
         }
     }
 

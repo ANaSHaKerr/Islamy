@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bakground_color"
     tools:context=".Screens.DrawerScreen.azkarElsabah">
 
     <androidx.appcompat.widget.Toolbar
@@ -42,7 +43,6 @@
         android:id="@+id/azkarElsabahList"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/bakground_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
