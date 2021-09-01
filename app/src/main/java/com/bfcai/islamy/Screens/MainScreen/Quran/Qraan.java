@@ -89,7 +89,7 @@ public class Qraan extends AppCompatActivity {
                 String item=pdflistview.getItemAtPosition(i).toString();
                 Intent intent=new Intent(getApplicationContext(),PdfOpner.class);
                 intent.putExtra("item",item);
-                intent.putExtra("num",addressMap.get(item));
+                intent.putExtra("num",i);
 
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
